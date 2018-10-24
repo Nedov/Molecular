@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
   .setTitle("Stats")
   .addField("● Servers", `${bot.guilds.size}`, true)
   .addField("● Members", `${bot.users.size}`, true)
-  .addField("● Text editor", "Atom Editor")
+  .addField("● Text editor", "[Atom Editor](https://atom.io/)")
   .setFooter(`Bot: ${bname}, ID: ${bid}`)
   .setURL("https://discord.io/molecularsupport")
   .addField("● Channels", `${bot.channels.size}`);

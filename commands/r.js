@@ -16,4 +16,3 @@ try {
   message.reply(`Successfully restarted **${config.prefix}${args[0]}**`);
 
 }
-;

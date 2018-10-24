@@ -35,8 +35,8 @@ const rslap = rando_imgs[Math.floor(Math.random() * rando_imgs.length)]
 
 if (!args[0]) {
   const embed = {
-    "title": "BOT Error || Не хватает аргументов",
-    "description": "Пример: .slap <user>",
+    "title": "BOT Error || Mention a user",
+    "description": "Usage: m^slap <user>",
     "color": 13632027,
   };
  message.channel.send({ embed });

@@ -1,10 +1,18 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js')
 
 module.exports.run = async (bot, message, args) => {
 
-if (message.author.bot) return;
 
-const m = await message.channel.send("Pinging....");
+    let diff = message.createdTimestamp - Date.now();
+    let API = Math.round(bot.ping);
 
-  m.edit(`<@${message.author.id}> Pong! latency \`${m.createdTimestamp - message.createdTimestamp}ms\`. API latency \`${Math.round(bot.ping)}ms\``);
+        let embed = new Discord.RichEmbed()
+        .setTitle(`🔔 Pong!`)
+        .setColor("#c294e3")
+        .addField("📶 Latency", `\`${diff}\``, true)
+        .addField("💻 API", `\`${API}ms\``, true)
+        message.channel.send(embed);
+
+
+
 }

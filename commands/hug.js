@@ -18,10 +18,10 @@ const rhug = rando_imgs[Math.floor(Math.random() * rando_imgs.length)]
 
 
       const embed = {
-        "description": `${message.author} обнял(-а) ${member}!`,
+        "description": `${message.author} hugged ${member}!`,
         "color": 12916630,
         "footer": {
-          "text": `Автор команды: ${message.author.tag}`
+          "text": `Author: ${message.author.tag}`
         },
         "image": {
           "url": rhug
@@ -34,8 +34,8 @@ const rhug = rando_imgs[Math.floor(Math.random() * rando_imgs.length)]
 
 if (!args[0]) {
   const embed = {
-    "title": "BOT Error || Не хватает аргументов",
-    "description": "Пример: .hug <user>",
+    "title": "BOT Error || Mention a user",
+    "description": "Usage: m^hug <user>",
     "color": 13632027,
   };
  message.channel.send({ embed });

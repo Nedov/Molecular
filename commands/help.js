@@ -20,7 +20,7 @@ return;
             const help2 = new Discord.RichEmbed()
           .setTitle("**Help menu (Page: 2 / 3)**\n")
           .setDescription(`\`cat | lmgtfy <question> | slap | avatar | poll <question>?\``)
-          .setFooter("Commands type: \"for fun\"; [ ] - not obligatory")
+          .setFooter("Commands type: \"fun\"; [ ] - not obligatory")
           .setColor("#F8585A");
           message.channel.send(help2);
             return;
@@ -30,7 +30,7 @@ return;
             const help2 = new Discord.RichEmbed()
           .setTitle("**Help menu (Page: 3 / 3)**\n")
           .setDescription(`\`arole <user> <role> | rrole <user> <role> | purge <2-100> | kick <user> <reason> | ban <user> <reason>\``)
-          .setFooter("Commands type: \"mod commands\"; [ ] - not obligatory")
+          .setFooter("Commands type: \"mod\"; [ ] - not obligatory")
           .setColor("#F8585A");
           message.channel.send(help2);
             return;

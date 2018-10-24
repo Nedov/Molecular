@@ -58,11 +58,24 @@ if (message.channel.id == "475976131611328522" || "435349219906158603") {
   });
 
 bot.on("ready", async () => {
-  console.log(`${bot.user.username} is online on ${bot.guilds.size} servers!`);
-  bot.user.setStatus("dnd");
-  bot.user.setActivity("m^help 1/2", {type: "STREAMING", url: "https://www.twitch.tv/funlennysub"});
+
+      bot.user.setStatus("dnd");
+
+      console.log(`${bot.user.username} is online on ${bot.guilds.size} servers!`);
 
 });
+
+bot.setInterval(() => {
+    let Status = [
+        `on ${bot.guilds.size} servers`,
+        `m^help 1-3`,
+        `with ${bot.users.size} members`,
+    ];
+
+    bot.user.setActivity(Status[Math.floor(Math.random() * Status.length)], { "type": "WATCHING" });
+
+
+}, 10 * 1000);
 
   bot.on('guildMemberAdd', member => {
 

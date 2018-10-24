@@ -8,7 +8,7 @@ exports.run = async (bot, message, args) => {
         
         let embed = new Discord.RichEmbed()
         .setTitle(`🔔 Pong!`)
-        .setColor(0xff2f2f)
+        .setColor("#c294e3")
         .addField("📶 Latency", `${diff}ms`, true)
         .addField("💻 API", `${API}ms`, true)
         message.edit(embed);

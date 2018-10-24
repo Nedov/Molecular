@@ -14,7 +14,6 @@ module.exports.run = async (bot, message, args) => {
         .setColor("RANDOM")
         .addField('API Ping : ', Math.floor(bot.ping) + 'ms')
         .addField('Bot Ping : ', Math.floor(botping) + 'ms')
-        .addField('Message Ping : ', '~' + Math.round(msgping2) + 'ms')
         .setTimestamp(new Date())
         .setFooter(`requested by ${message.author.tag}`);
 

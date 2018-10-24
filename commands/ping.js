@@ -1,10 +1,24 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
+    
+    
 
-if (message.author.bot) return;
+    let msgping1 = new Date();
 
-const m = await message.channel.send("Pinging....");
+    let botping = new Date() - message.createdAt;
 
-  m.edit(`<@${message.author.id}> Pong! latency \`${m.createdTimestamp - message.createdTimestamp}ms\`. API latency \`${Math.round(bot.ping)}ms\``);
-}
+    let msgping2 = new Date() - msgping1;
+
+    let pingembed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .addField('API Ping : ', Math.floor(bot.ping) + 'ms')
+        .addField('Bot Ping : ', Math.floor(botping) + 'ms')
+        .addField('Message Ping : ', '~' + Math.round(msgping2) + 'ms')
+        .setTimestamp(new Date())
+        .setFooter(`requested by ${message.author.tag}`);
+
+        
+    return message.channel.send(pingembed);
+        
+

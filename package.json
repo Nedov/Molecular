@@ -1,0 +1,21 @@
+{
+  "name": "superagentapi",
+  "version": "1.0.0",
+  "description": "superagentapi",
+  "main": "api.js",
+  "scripts": {
+    "test": "+ping"
+  },
+  "author": "funlennysub",
+  "license": "ISC",
+  "dependencies": {
+    "date-format": "^1.2.0",
+    "dateformat": "^3.0.3",
+    "discord.js": "^11.4.2",
+    "moment": "^2.22.2",
+    "ms": "^2.1.1",
+    "strict-uri-encode": "^2.0.0",
+    "superagent": "^3.8.3",
+    "time-ago": "^0.2.1"
+  }
+}

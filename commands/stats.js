@@ -13,7 +13,6 @@ module.exports.run = async (bot, message, args) => {
   .addField("● Servers", `${bot.guilds.size}`, true)
   .addField("● Members", `${bot.users.size}`, true)
   .addField("● Text editor", "[Atom Editor](https://atom.io/)")
-  .addField("● Text editor", "Atom Editor")
   .addField("Discord.js", djs)
   .addField("Node.js", njs)
   .setFooter(`Bot: ${bname}, ID: ${bid}`)

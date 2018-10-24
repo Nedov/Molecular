@@ -1,9 +1,9 @@
 const Discord = require('discord.js')
 
-exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
 
 
-    let diff = message.createdTimestamp - Date.now();
+    let diff = Date.now() - message.createdTimestamp;
     let API = Math.round(bot.ping);
 
         let embed = new Discord.RichEmbed()

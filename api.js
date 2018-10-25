@@ -10,8 +10,6 @@ const ta = require("time-ago");
 const dateformat = require("dateformat");
 const tools = require('./functions.js');
 const encode = require('strict-uri-encode');
-
-
 const ascii = require('ascii-art');
 
 

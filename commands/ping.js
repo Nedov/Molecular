@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 exports.run = async (bot, message, args) => {
 
 
-    let diff = message.createdTimestamp - Date.now();
+  let diff = Date.now() - message.createdTimestamp;
     let API = Math.round(bot.ping);
 
         let embed = new Discord.RichEmbed()
@@ -12,7 +12,5 @@ exports.run = async (bot, message, args) => {
         .addField("📶 Latency", `\`${diff}\``, true)
         .addField("💻 API", `\`${API}ms\``, true)
         message.channel.send(embed);
-
-
 
 }

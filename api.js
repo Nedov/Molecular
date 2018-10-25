@@ -12,6 +12,7 @@ const tools = require('./functions.js');
 const encode = require('strict-uri-encode');
 
 
+const ascii = require('ascii-art');
 
 
 const serverStats = {

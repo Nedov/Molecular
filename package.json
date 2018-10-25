@@ -4,11 +4,12 @@
   "description": "superagentapi",
   "main": "api.js",
   "scripts": {
-    "test": "+ping"
+    "test": "m^ping"
   },
   "author": "funlennysub",
   "license": "ISC",
   "dependencies": {
+    "ascii-art": "^1.4.4",
     "date-format": "^1.2.0",
     "dateformat": "^3.0.3",
     "discord.js": "^11.4.2",

@@ -5,9 +5,9 @@ let config = require("../config.json");
 module.exports.noPerms = (message, perm) => {
     let embed = new Discord.RichEmbed()
         .setAuthor(message.author.username)
-        .setTitle("Нехватает прав")
+        .setTitle("Insufficient Permission")
         .setColor(config.red)
-        .addField("Нужны права на", perm);
+        .addField("Permission needed", perm);
 
     message.channel.send(embed).then(m => m.delete(5000));
 }
@@ -18,7 +18,7 @@ module.exports.equalPerms = (message, user, perms) => {
         .setAuthor(message.author.username)
         .setColor(config.red)
         .setTitle("Error")
-        .setDescription(`${user} имеет право на`, perms);
+        .addField(`${user} has perms`, perms);
 
     message.channel.send(embed).then(m => m.delete(5000));
 
@@ -27,7 +27,7 @@ module.exports.equalPerms = (message, user, perms) => {
 module.exports.botuser = (message) => {
     let embed = new Discord.RichEmbed()
         .setTitle("Error")
-        .setDescription("Ты не можешь забанить бота.")
+        .setDescription("You cannot ban a bot.")
         .setColor(config.red);
 
     message.channel.send(embed).then(m => m.delete(5000));
@@ -36,7 +36,7 @@ module.exports.botuser = (message) => {
 module.exports.cantfindUser = (channel) => {
     let embed = new Discord.RichEmbed()
         .setTitle("Error")
-        .setDescription("Пользователь не найден.")
+        .setDescription("Could not find that user.")
         .setColor(config.red);
 
     channel.send(embed).then(m => m.delete(5000));
@@ -45,7 +45,7 @@ module.exports.cantfindUser = (channel) => {
 module.exports.noReason = (channel) => {
     let embed = new Discord.RichEmbed()
         .setTitle("Error")
-        .setDescription("Пожалуйста, укажите причину.")
+        .setDescription("Please supply a reason.")
         .setColor(config.red);
 
     channel.send(embed).then(m => m.delete(5000));

@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 
-exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
 
 
   let diff = Date.now() - message.createdTimestamp;

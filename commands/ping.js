@@ -1,18 +1,14 @@
-const Discord = require('discord.js')
+const Discord = require("discord.js"); // Defining Discord
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args) => { // Command Handler Module Code
+const m = await message.channel.send("Pinging...");
 
+let E = new Discord.RichEmbed() // Start of embed
+.setTitle("Pong! :stopwatch:") // Embed Title
+.addField("Latency", `${m.createdTimestamp - message.createdTimestamp}ms`) // Shows Latency
+.addField("API Latency", `${Math.round(bot.ping)}ms`) // Shows API Latency
+.setColor("")
 
-    let diff = Date.now() - message.createdTimestamp;
-    let API = Math.round(bot.ping);
+message.channel.send(E) // Sending the embed
 
-        let embed = new Discord.RichEmbed()
-        .setTitle(`🔔 Pong!`)
-        .setColor("#c294e3")
-        .addField("📶 Latency", `\`${diff}\``, true)
-        .addField("💻 API", `\`${API}ms\``, true)
-        message.channel.send(embed);
-
-
-
-}
+  }

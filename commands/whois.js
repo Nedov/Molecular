@@ -3,13 +3,12 @@ const moment = require("moment");
 
 module.exports.run = async (bot, message, args, ops) => {
 
-  let memberToFind = message.mentions.members.first();
 
-  let color = message.member.displayHexColor || memberToFind;
+ 
 
 
     if(message.mentions.members.size == 0) {
-
+ let color = message.member.displayHexColor;
       const bit = {
         true: "Yes",
         false: "Nope"
@@ -44,6 +43,7 @@ module.exports.run = async (bot, message, args, ops) => {
     }
 
         if(message.mentions.members.size == 1) {
+  let memberToFind = message.mentions.members.first();
 
           const bit1 = {
             true: "Yes",
@@ -56,6 +56,7 @@ module.exports.run = async (bot, message, args, ops) => {
             dnd: "Do not disturb",
             offline: "Offline/Invisible"
      };
+          let color1 = memberToFind.displayHexColor;
 
 
 
@@ -66,11 +67,11 @@ module.exports.run = async (bot, message, args, ops) => {
         .addField('Joined At:', `${moment.parseZone(message.guild.members.find('id', memberToFind.id).joinedAt).locale('en').format('dd, DD-MM-YYYY, HH:mm')}`)
         .addField(`Roles[${memberToFind.roles.size - 1}]`, `${memberToFind.roles.map(r => `<@&${r.id}>`).slice(1).join("  |  ")}`)
         .addField('Status:', status1[memberToFind.presence.status])
-        .addField('Color:', color)
+        .addField('Color:', color1)
         .addField('Bot?', bit1[memberToFind.user.bot])
         .addField('game:', `${memberToFind.presence.game ? memberToFind.presence.game : 'Nothing'}`)
         .setFooter(`ID ${memberToFind.id}`)
-        .setColor(color)
+        .setColor(color1)
         .setTimestamp();
 
           message.channel.send(embed);

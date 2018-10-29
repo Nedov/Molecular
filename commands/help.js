@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
 //page 1
 
-if(!args[0] || args[0] == 1) {
+if(!args[0]) {
   const help1 = new Discord.RichEmbed() // sets a embed box to the variable embedhelpmember
               .setTitle("**Help menu (Page: 1 / 3)**\n") // sets the title to List of Commands
               .setDescription(`\`role-info <role> | say | whois [user] | stats \``)

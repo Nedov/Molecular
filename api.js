@@ -139,6 +139,7 @@ bot.setInterval(() => {
   });
 
 
+
 bot.on('message', async message => {
 
 
@@ -175,8 +176,10 @@ const applyText = (canvas, text) => {
 
 bot.on('guildMemberAdd', async member => {
 
+const guil = member.guild.id !== "504005061186420757" || "343572980351107077";
+if(!guil) return;
 
-    const channel = member.guild.channels.find(ch => ch.name === 'mem-log' || 'bot-spam');
+    const channel = member.guild.channels.find(ch => ch.name === 'bot-spam');
     if (!channel) return;
 
     const canvas = Canvas.createCanvas(700, 250);
@@ -216,10 +219,11 @@ bot.on('guildMemberAdd', async member => {
 });
 
 bot.on('guildMemberRemove', async member => {
-  if(member.guild.id !== "504005061186420757") return;
+  const guil = member.guild.id !== "504005061186420757" || "343572980351107077";
+  if(!guil) return;
 
-    const channel = member.guild.channels.find(ch => ch.name === 'mem-log' || 'bot-spam');
-    if (!channel) return;
+  const channel = member.guild.channels.find(ch => ch.name === 'bot-spam');
+  if (!channel) return;
 
     const canvas = Canvas.createCanvas(700, 250);
     const ctx = canvas.getContext('2d');

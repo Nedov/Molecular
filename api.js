@@ -258,4 +258,4 @@ bot.on('guildMemberRemove', async member => {
     channel.send(`Cya, ${member}!`, attachment);
 });
 
-  bot.login(config.token);
+  bot.login(process.env.BOT_TOKEN);

@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
 if(!args[0]) {
   const help1 = new Discord.RichEmbed() // sets a embed box to the variable embedhelpmember
               .setTitle("**Help menu (Page: 1 / 3)**\n") // sets the title to List of Commands
-              .setDescription(`\`role-info <role> | say | whois [user] | stats \``)
+              .setDescription(`\`role-info <role> | say | whois [user] | stats | serverinfo [serverID]\``)
               .setFooter("Commands type: \"main\"; [ ] - not obligatory")
               .setColor("#F8585A"); // sets the color of the embed box to orange
           message.channel.send(help1); // sends the embed box "embedhelpmember" to the chatif
@@ -19,7 +19,7 @@ return;
           if(args[0] == 2){
             const help2 = new Discord.RichEmbed()
           .setTitle("**Help menu (Page: 2 / 3)**\n")
-          .setDescription(`\`cat | lmgtfy <question> | slap | avatar [user] | poll <question>? | cow <text> | ping | мур(Just symbol cat) | death | ascii <text>\``)
+          .setDescription(`\`cat | lmgtfy <question> | slap | avatar [user] | poll <question>? | cow <text> | ping | мур(Just symbol cat) | death | ascii <text> | calc | \``)
           .setFooter("Commands type: \"fun\"; [ ] - not obligatory")
           .setColor("#F8585A");
           message.channel.send(help2);

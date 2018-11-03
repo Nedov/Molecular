@@ -1,27 +1,40 @@
-const Discord = require('discord.js'); // I'm requiring discord.js since we will be using Embeds.
+const Discord = require("discord.js")
 
-module.exports.run = (bot, message, args, tools) => {
+const { version } = require("discord.js");
+const moment = require("moment");
+const m = require("moment-duration-format");
+let os = require('os')
+let cpuStat = require("cpu-stat")
+const ms = require("ms")
 
-  spam_times = 0;
-      if (message.content.split(" ")[2]) {
-        spam_times = message.content.split(" ")[2];
-      }
-      if (message.content.split(" ")[1]) {
-        spam_channel = message.content.split(" ")[1];
-        if (spam_channel == "here") {
-          spam_channel = message.channel.id;
+module.exports.run = async (bot, message, args) => {
+    let cpuLol;
+    cpuStat.usagePercent(function(err, percent, seconds) {
+        if (err) {
+            return console.log(err);
         }
-      }
-      if (spam_times > 0 && spam_channel && message.content.split(" ")[3]) {
-        var msg = message.content.split(" ");
-        msg.splice(0, 3);
-        msg = msg.join(" ");
-        for (var i = 0; i < spam_times; i++) {
-          client.channels.get(spam_channel).send(msg);
-        }
-      }
+        const duration = moment.duration(bot.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
+        const embedStats = new Discord.RichEmbed()
+            .setAuthor(bot.user.username)
+            .setTitle("***BOT Stats***")
+            .setColor("RANDOM")
+            .addField("• <a:molecularIDLE:508010885558566931>Mem Usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB`, true)
+            .addField("• <a:molecularONLINE:508010883356688395>Uptime ", `${duration}`, true)
+            .addField("• <a:molecularSTREAMING:508010883889496064>Users", `${bot.users.size.toLocaleString()}`, true)
+            .addField("• <a:molecularSTREAMING:508010883889496064>Servers", `${bot.guilds.size.toLocaleString()}`, true)
+            .addField("• <a:molecularSTREAMING:508010883889496064>Channels ", `${bot.channels.size.toLocaleString()}`, true)
+            .addField("• Discord.js", `v${version}`, true)
+            .addField("• Node", `${process.version}`, true)
+            .addField("• CPU", `\`\`\`md\n${os.cpus().map(i => `${i.model}`)[0]}\`\`\``)
+            .addField("• CPU usage", `\`${percent.toFixed(2)}%\``, true)
+            .addField("• Arch", `\`${os.arch()}\``, true)
+            .addField("• Platform", `\`\`${os.platform()}\`\``, true)
+            .addField("API Latency", `${Math.round(bot.ping)}ms`)
+        message.channel.send(embedStats)
+    });
+};
 
-}
 
-// ⏪⏩
-// Now, we can test it. Make sure you add some pages though.
+exports.help = {
+    name: "stats"
+};

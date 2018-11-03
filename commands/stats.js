@@ -27,7 +27,9 @@ module.exports.run = async (bot, message, args) => {
             .addField("• Node", `${process.version}`, true)
             .addField("• CPU", `\`\`\`md\n${os.cpus().map(i => `${i.model}`)[0]}\`\`\``)
             .addField("• CPU usage", `\`${percent.toFixed(2)}%\``, true)
-            .addField("API Latency", `${Math.round(bot.ping)}ms`, true)
+            .addField("• Arch", `\`${os.arch()}\``, true)
+            .addField("• Platform", `\`\`${os.platform()}\`\``, true)
+            .addField("API Latency", `${Math.round(bot.ping)}ms`)
         message.channel.send(embedStats)
     });
 };

@@ -1,0 +1,14 @@
+{
+  "ping": {
+    "name": "Ping command",
+    "type": "Command",
+    "price": "10",
+    "desc": "You can use ping command"
+  },
+  "Newbies": {
+    "name": "Newbies role",
+    "type": "Role",
+    "price": "250",
+    "desc": "Newbies role"
+  }
+}

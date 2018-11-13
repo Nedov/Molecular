@@ -1,14 +1,14 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-message.delete();
+  message.delete();
 
   const Embed = new Discord.RichEmbed()
-  .setTitle("Правила ML 2.0")
-  .setColor("#F8585A")
-  .setTimestamp(new Date())
-  .setFooter('Правила написал: JlImOnAdIk ( Лимонадик )')
-  .setDescription(`
+    .setTitle("Правила ML 2.0")
+    .setColor("#F8585A")
+    .setTimestamp(new Date())
+    .setFooter('Правила написал: JlImOnAdIk ( Лимонадик )')
+    .setDescription(`
     **[───── Глобальные ─────]**
 
 1. Запрещено нарушать <#435350698931126273>  сервера.

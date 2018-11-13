@@ -1,18 +1,10 @@
-const ascii = require('ascii-art');
-
+const request = require("request");
 
 module.exports.run = async (bot, message, args) => {
 
-  ascii.font(args.join(' '), 'Doom', function(rendered) {
-
-    rendered = rendered.trimRight();
-
-    if (rendered.length > 2000) return message.channel.send('Sorry (');
-
-    message.channel.send(rendered, {
-      code: 'md'
-    });
-
-  });
-
+  request('http://artii.herokuapp.com/make?text=' + args.join(' '), function(error, response, body) {
+    message.channel.send('Обрабатываю запрос...').then(function(message) {
+      message.edit("```" + body + "```");
+    }).catch(function() {});
+  })
 }

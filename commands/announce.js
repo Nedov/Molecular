@@ -5,12 +5,12 @@ module.exports.run = async (bot, message, args, tools) => {
 
   let split = '%%';
 
-  if(!args[0]) {
+  if (!args[0]) {
 
     const embed = new Discord.RichEmbed()
-    .setColor(0x77B3D5)
-    .setTitle('Information')
-    .setDescription(`**Usage: \`\`\`m^announce embedTitle ${split} embedMsg ${split} msgName ${split} msgIcon ${split} embedColor\`\`\`**`);
+      .setColor(0x77B3D5)
+      .setTitle('Information')
+      .setDescription(`**Usage: \`\`\`m^announce embedTitle ${split} embedMsg ${split} msgName ${split} msgIcon ${split} embedColor\`\`\`**`);
 
     return send(message.channel, embed, {
       name: 'Announce Command',
@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args, tools) => {
 
   args = args.join(' ').split(split);
 
-  for (var i=0; i < args.length; i++) args[i] = args[i].trim();
+  for (var i = 0; i < args.length; i++) args[i] = args[i].trim();
 
   if (args[4]) args[4] = parseInt(`0x${args[4]}`);
 
@@ -34,10 +34,10 @@ module.exports.run = async (bot, message, args, tools) => {
   }
 
   const embed = new Discord.RichEmbed()
-  .setColor(options.embedColor)
-  .setTitle(options.title)
+    .setColor(options.embedColor)
+    .setTitle(options.title)
 
-  if(options.message) embed.setDescription(options.message);
+  if (options.message) embed.setDescription(options.message);
 
   send(message.channel, embed, {
     name: options.name,

@@ -1,40 +1,43 @@
 const Discord = require("discord.js")
-
-const { version } = require("discord.js");
+const errors = require("../utils/errors.js");
 const moment = require("moment");
-const m = require("moment-duration-format");
-let os = require('os')
-let cpuStat = require("cpu-stat")
-const ms = require("ms")
+
 
 module.exports.run = async (bot, message, args) => {
-    let cpuLol;
-    cpuStat.usagePercent(function(err, percent, seconds) {
-        if (err) {
-            return console.log(err);
-        }
-        const duration = moment.duration(bot.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
-        const embedStats = new Discord.RichEmbed()
-            .setAuthor(bot.user.username)
-            .setTitle("***BOT Stats***")
-            .setColor("RANDOM")
-            .addField("• <a:molecularIDLE:508010885558566931>Mem Usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB`, true)
-            .addField("• <a:molecularONLINE:508010883356688395>Uptime ", `${duration}`, true)
-            .addField("• <a:molecularSTREAMING:508010883889496064>Users", `${bot.users.size.toLocaleString()}`, true)
-            .addField("• <a:molecularSTREAMING:508010883889496064>Servers", `${bot.guilds.size.toLocaleString()}`, true)
-            .addField("• <a:molecularSTREAMING:508010883889496064>Channels ", `${bot.channels.size.toLocaleString()}`, true)
-            .addField("• Discord.js", `v${version}`, true)
-            .addField("• Node", `${process.version}`, true)
-            .addField("• CPU", `\`\`\`md\n${os.cpus().map(i => `${i.model}`)[0]}\`\`\``)
-            .addField("• CPU usage", `\`${percent.toFixed(2)}%\``, true)
-            .addField("• Arch", `\`${os.arch()}\``, true)
-            .addField("• Platform", `\`\`${os.platform()}\`\``, true)
-            .addField("API Latency", `${Math.round(bot.ping)}ms`)
-        message.channel.send(embedStats)
-    });
-};
 
 
-exports.help = {
-    name: "stats"
+  if (!message.member.hasPermission("BAN_MEMBERS")) return errors.noPerms(message, "BAN_MEMBERS");
+  if (args[0] == "help") {
+    message.reply("Usage: m^ban <user> <reason>");
+    return;
+  }
+
+  if (!args[0] || isNaN(args[0])) return message.channel.send('Please, enter a user ID');
+  if (args[0]) {
+    try {
+      let servers = ['504005061186420757', '511233067247992865', '248111395420241920', '478933393757962242', '478933393757962242'];
+      let bUser = args[0];
+      if (!bUser) return errors.cantfindUser(message.channel);
+      if (bUser.id === bot.user.id) return errors.botuser(message);
+      args.shift();
+      let bReason = args.join(" ");
+      if (!bReason) return errors.noReason(message.channel);
+      servers.forEach(s => {
+        message.channel.send(bot.guilds.get(s).ban(bUser))
+      });
+
+
+      let banEmbed = new Discord.RichEmbed()
+        .setDescription("Ban")
+        .setColor("#bc0000")
+        .addField("Banned User", `${bUser} with ID ${bUser.id}`)
+        .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
+        .addField("Banned In", message.channel)
+        .addField("Time", moment().locale('en').format('LLLL'))
+        .addField("Reason", bReason);
+      message.channel.send(banEmbed);
+    } catch (err) {
+      message.channel.sendCode('js', `Неожиданая ошибка!\n` + err)
+    }
+  }
 };

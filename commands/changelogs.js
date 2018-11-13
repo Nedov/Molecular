@@ -9,18 +9,18 @@ module.exports.run = async (bot, message, args) => {
 
 
   const Embed = new Discord.RichEmbed()
-  .setThumbnail(update)
-  .addField("Добавленны команды:", `
+    .setThumbnail(update)
+    .addField("Добавленны команды:", `
   • **.updates**, которая показывает обновления бота;
   • **.мур**, которая отправит вам веселого кота;
   • **.death**, фановая команда, не имеет смысла;`)
-  .addField("Изменения команд:", `
+    .addField("Изменения команд:", `
   • Внесены измененияв в команду **.мур**;
   • Изменено название команды **.updates**, теперь она **.changelogs**`)
-  .addField("Удалены команды:", `
+    .addField("Удалены команды:", `
   • **.dog**`)
-  .setTimestamp(new Date())
-  .setFooter(`Создатель бота: ${owner}`, `${owneravatar}`)
-  .setColor("#5DDAEE");
+    .setTimestamp(new Date())
+    .setFooter(`Создатель бота: ${owner}`, `${owneravatar}`)
+    .setColor("#5DDAEE");
   message.channel.send(Embed)
 }

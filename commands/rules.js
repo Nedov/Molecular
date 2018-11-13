@@ -4,10 +4,10 @@ module.exports.run = async (bot, message, args) => {
 
 
   const Embed = new Discord.RichEmbed()
-  .setTitle("Правила ML 2.0")
-  .setColor("#F8585A")
-  .setTimestamp(new Date())
-  .setDescription(`\`\`\`glsl
+    .setTitle("Правила ML 2.0")
+    .setColor("#F8585A")
+    .setTimestamp(new Date())
+    .setDescription(`\`\`\`glsl
     [──────────── Глобальные ────────────]
 1) Запрещена ненормативная лексика. Использование мата наказывается(Запрещается использование нецензурных слов в профиле — в никах/аватарах) =>  #мут 2 часа
 2) Запрещено обсуждать действия администрации. => #мут 1 час

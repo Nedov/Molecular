@@ -3,7 +3,7 @@ const encode = require('strict-uri-encode');
 
 module.exports.run = async (bot, message, args, ops) => {
 
-  if(args[0] == "help"){
+  if (args[0] == "help") {
     message.reply("Usage: m^lmgtfy <question>");
     return;
   }
@@ -16,10 +16,10 @@ module.exports.run = async (bot, message, args, ops) => {
 
 
   const embed = new Discord.RichEmbed()
-  .setTitle("LMGTFY")
-  .setURL(link)
-  .setImage('http://1.bp.blogspot.com/-xMNYGtL5gdM/V3_W_-WEUiI/AAAAAAAAABc/yxaIo1sw3X8YL8kDoqCTkIvccYeMLzDgwCK4B/s1600/logo-with-colors-trans-medium.png')
-  .setColor(color);
+    .setTitle("LMGTFY")
+    .setURL(link)
+    .setImage('http://1.bp.blogspot.com/-xMNYGtL5gdM/V3_W_-WEUiI/AAAAAAAAABc/yxaIo1sw3X8YL8kDoqCTkIvccYeMLzDgwCK4B/s1600/logo-with-colors-trans-medium.png')
+    .setColor(color);
   message.channel.send(embed);
 
 

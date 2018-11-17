@@ -47,3 +47,16 @@ exports.run = async (bot, message, args, ops) => {
     return;
   }
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["mail"],
+  categories: ['OWNER']
+};
+
+exports.help = {
+  name: "say",
+  description: "Bot owners command",
+  usage: "say <text>"
+};

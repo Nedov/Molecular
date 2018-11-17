@@ -12,3 +12,17 @@ module.exports.run = async (bot, message, args) => {
   message.channel.send(`**${warnmember.user.tag}** was warned!`);
   await warnmember.send(`You have been warned in ${message.guild.name} by ${message.author.tag} for: **${reason}.`)
 }
+
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: [],
+  categories: ['mod commands']
+};
+
+exports.help = {
+  name: "warn",
+  description: "Warn command",
+  usage: "warn <user>"
+};

@@ -37,3 +37,16 @@ exports.run = (bot, message, args, tools) => {
   message.channel.send(embed)
 
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["discriminator"],
+  categories: ['Fun']
+};
+
+exports.help = {
+  name: "discrim",
+  description: "Discrim command",
+  usage: "discrim <discrim>"
+};

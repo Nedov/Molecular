@@ -22,3 +22,16 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(`<@${rMember.id}>, потерял(-а) ${gRole.name}.`)
   }
 }
+
+exports.conf = {
+  enabled: false, // not used yet
+  guildOnly: true, // not used yet
+  aliases: ["rem"],
+  categories: ['ML 2.0']
+};
+
+exports.help = {
+  name: "remove",
+  description: "Убирает роль `Участник гильдии`(ТОЛЬКО ДЛЯ МЛ 2.0)",
+  usage: "remove <user>"
+};

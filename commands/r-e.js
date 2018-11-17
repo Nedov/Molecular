@@ -16,3 +16,16 @@ exports.run = (bot, message, args, ops) => {
   message.reply(`Successfully restarted **${config.prefix}${args[0]}**`);
 
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["re"],
+  categories: ['OWNER']
+};
+
+exports.help = {
+  name: "r-e",
+  description: "events reload command",
+  usage: "r-e <event>"
+};

@@ -62,3 +62,16 @@ module.exports.run = async (bot, message, args, ops) => {
       .replace(/@/g, "@" + String.fromCharCode(8203));
   }
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["e", "ev"],
+  categories: ['OWNER']
+};
+
+exports.help = {
+  name: "eval",
+  description: "Eval command",
+  usage: "eval"
+};

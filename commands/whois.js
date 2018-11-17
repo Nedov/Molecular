@@ -23,8 +23,8 @@ module.exports.run = async (bot, message, args, ops) => {
   let embed = new Discord.RichEmbed()
     .setAuthor(member.user.tag, member.user.avatarURL)
     .setThumbnail(member.user.avatarURL)
-    .addField('Created At:', `${moment.parseZone(member.createdAt).locale('en').format('dd, DD-MM-YYYY, HH:mm')}`, true)
-    .addField('Joined At:', `${moment.parseZone(message.guild.members.find('id', member.id).joinedAt).locale('en').format('dd, DD-MM-YYYY, HH:mm')}`)
+    .addField('Created At:', `${moment.parseZone(member.createdAt).locale('en').format('dddd, L, HH:mm')}`, true)
+    .addField('Joined At:', `${moment.parseZone(message.guild.members.find('id', member.id).joinedAt).locale('en').format('dddd, L, HH:mm')}`)
     .addField(`Roles[${member.roles.size - 1}]`, `**   **${member.roles.map(r => `<@&${r.id}>`).slice(1).join("  |  ")}`)
     .addField('Status:', status[member.presence.status])
     .addField('Color:', color)
@@ -40,3 +40,16 @@ module.exports.run = async (bot, message, args, ops) => {
 
 
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["userinfo", "ui"],
+  categories: ['General']
+};
+
+exports.help = {
+  name: "whois",
+  description: "User info command",
+  usage: "whois <user>"
+};

@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args = []) => {
   if (!message.member.roles.has('470276314822213633')) return message.reply('У тебя нет роли `Офицер гильдии`');
 
   if (!args[0]) return message.reply('Используй `m^add @user`');
@@ -22,3 +22,16 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(`<@${rMember.id}>, получил(-а) ${gRole.name}.`)
   }
 }
+
+exports.conf = {
+  enabled: false, // not used yet
+  guildOnly: true, // not used yet
+  aliases: [],
+  categories: ['ML 2.0']
+};
+
+exports.help = {
+  name: "add",
+  description: "Дает участнику роль `Участник гильдии`(ТОЛЬКО ДЛЯ МЛ 2.0)",
+  usage: "add <user>"
+};

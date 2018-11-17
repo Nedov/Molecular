@@ -56,3 +56,16 @@ module.exports.run = async (bot, message, args, ops) => {
     });
   }
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["e2", "ev2"],
+  categories: ['OWNER']
+};
+
+exports.help = {
+  name: "eval2",
+  description: "Eval command",
+  usage: "eval"
+};

@@ -14,3 +14,16 @@ module.exports.run = async (bot, message, args, tools, ops) => {
 
   bot.guilds.get('504005061186420757').channels.get('508738099673825311').send(embed);
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: true, // not used yet
+  aliases: [],
+  categories: ['ML 2.0']
+};
+
+exports.help = {
+  name: "bot",
+  description: "new bot command",
+  usage: "bot <text>"
+};

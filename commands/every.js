@@ -18,3 +18,16 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(`**${message.author.username}**, role ` + `\` ${role.name}\`` + ` was added to all members`);
   }
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: true, // not used yet
+  aliases: ["addevery"],
+  categories: ['PEPESTAN FAMILY']
+};
+
+exports.help = {
+  name: "every",
+  description: "Give role to everyone",
+  usage: "every <rooleID>"
+};

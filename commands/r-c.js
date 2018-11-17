@@ -3,16 +3,39 @@ const config = require("../config.json");
 exports.run = (bot, message, args, ops) => {
 
   if (!config.owners.includes(message.author.id)) return message.channel.send(`<@${message.author.id}> You don\'t to have permissions`);
-  if (!args || args.size < 1) return message.reply("Enter a command name.");
 
-  try {
-    delete require.cache[require.resolve(`./${args[0]}.js`)];
-
-  } catch (e) {
-
-    return message.channel.send(`Cannot reload: ${args[0]}`);
+  let command;
+  if (bot.commands.has(args[0])) {
+    command = args[0];
+  } else if (bot.aliases.has(args[0])) {
+    command = bot.aliases.get(args[0]);
+  }
+  if (!command) {
+    return message.channel.sendMessage(`I cannot find the command: ${args[0]}`);
+  } else {
+    message.channel.sendMessage(`Reloading: ${command}`)
+      .then(m => {
+        bot.reload(command)
+          .then(() => {
+            m.edit(`Successfully reloaded: ${command}`);
+          })
+          .catch(e => {
+            m.edit(`Command reload failed: ${command}\n\`\`\`${e.stack}\`\`\``);
+          });
+      });
   }
 
-  message.reply(`Successfully restarted **${config.prefix}${args[0]}**`);
-
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["rc"],
+  categories: ['OWNER']
+};
+
+exports.help = {
+  name: "r-c",
+  description: "Reload Commans command",
+  usage: "r-c <command>"
+};

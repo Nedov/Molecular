@@ -20,3 +20,16 @@ module.exports.run = async (bot, message, args, tools) => {
     .addField('Output', `\`\`\`js\n${resp}\`\`\``)
   message.channel.send(embed);
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["calculate", "calculator"],
+  categories: ['General']
+};
+
+exports.help = {
+  name: "calculator",
+  description: "calculator command",
+  usage: "calc <calulation>"
+};

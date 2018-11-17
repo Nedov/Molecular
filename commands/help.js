@@ -6,34 +6,26 @@ module.exports.run = async (bot, message, args) => {
   //page 1
 
   if (!args[0]) {
-    const help1 = new Discord.RichEmbed() // sets a embed box to the variable embedhelpmember
-      .setTitle("**Help menu (Page: 1 / 3)**\n") // sets the title to List of Commands
-      .setDescription(`\`role-info <role> | say | whois [user] | stats | serverinfo [serverID] | serverslist\``)
-      .setFooter("Commands type: \"main\"; [ ] - not obligatory")
-      .setColor("#F8585A"); // sets the color of the embed box to orange
-    message.channel.send(help1); // sends the embed box "embedhelpmember" to the chatif
-    return;
-  }
-
-  //page 2
-  if (args[0] == 2) {
-    const help2 = new Discord.RichEmbed()
-      .setTitle("**Help menu (Page: 2 / 3)**\n")
-      .setDescription(`\`roulette | reverse <text> | qrcode <text> | encode <text> | decode <text> | draw | discrim <discrim> | emoji :<emoji>: | saye <text> | gay | патент | cat | lmgtfy <question> | slap | avatar [user] | poll <question>? | cow <text> | ping | ква(Just symbol pepe) | death | ascii <text> | calc | \``)
-      .setFooter("Commands type: \"fun\"; [ ] - not obligatory")
-      .setColor("#F8585A");
-    message.channel.send(help2);
-    return;
-  }
-
-  if (args[0] == 3) {
-    const help2 = new Discord.RichEmbed()
-      .setTitle("**Help menu (Page: 3 / 3)**\n")
-      .setDescription(`\`warn <@user> [reason] | arole <user> <role> | rrole <user> <role> | purge <2-100> | kick <user> <reason> | ban <user> <reason> | tempmute <user> <1s/m/h/d>\``)
-      .setFooter("Commands type: \"mod\"; [ ] - not obligatory")
-      .setColor("#F8585A");
-    message.channel.send(help2);
-    return;
+    message.channel.sendCode("asciidoc", `= Command List =\n\n[Use m^help <commandname> for details]\n\n${bot.commands.map(c=>`${c.help.name}:: ${c.help.description}`).join("\n")}`);
+  } else {
+    let command = args[0];
+    if (bot.commands.has(command)) {
+      command = bot.commands.get(command);
+      message.channel.sendCode("asciidoc", `= ${command.help.name} = \n[ category:: ${command.conf.categories} ]\n${command.help.description}\nusage::${command.help.usage}`);
+    }
   }
 
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: [],
+  categories: ['General']
+};
+
+exports.help = {
+  name: "help",
+  description: "help command",
+  usage: "help [command]"
+};

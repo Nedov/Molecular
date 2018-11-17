@@ -7,7 +7,7 @@ const moment = require("moment");
 module.exports.run = async (bot, message, args) => {
 
 
-  if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Missing permissions.");
+  if (member.highestRole.position >= message.member.highestRole.position) return message.reply("Missing permissions.");
   if (args[0] == "help") {
     message.reply("Usage: m^mute <user> <1s/m/h/d>");
     return;
@@ -72,3 +72,16 @@ module.exports.run = async (bot, message, args) => {
 
   //end of module
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["tempmute"],
+  categories: ['mod commands']
+};
+
+exports.help = {
+  name: "mute",
+  description: "Tempmute command",
+  usage: "mute <user> <1/s/m/h/d>"
+};

@@ -57,3 +57,16 @@ module.exports.run = async (bot, message, args) => {
 
   }
 }
+
+exports.conf = {
+  enabled: false, // not used yet
+  guildOnly: false, // not used yet
+  aliases: [],
+  categories: ['Level']
+};
+
+exports.help = {
+  name: "command",
+  description: "Command Description",
+  usage: "command <argument>"
+};

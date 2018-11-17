@@ -16,3 +16,16 @@ module.exports.run = async (bot, message, args) => {
   })
 
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["p", "pong"],
+  categories: ['General']
+};
+
+exports.help = {
+  name: "ping",
+  description: "Ping command",
+  usage: "ping"
+};

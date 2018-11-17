@@ -24,3 +24,16 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(`RIP to <@${rMember.id}>, We removed ${gRole.name} from them. We tried to DM them, but their DMs are locked.`)
   }
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["removerole"],
+  categories: ['mod commands']
+};
+
+exports.help = {
+  name: "rrole",
+  description: "Removerole command",
+  usage: "rrole <user> <role>"
+};

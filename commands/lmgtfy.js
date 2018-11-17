@@ -2,11 +2,7 @@ const Discord = require('discord.js');
 const encode = require('strict-uri-encode');
 
 module.exports.run = async (bot, message, args, ops) => {
-
-  if (args[0] == "help") {
-    message.reply("Usage: m^lmgtfy <question>");
-    return;
-  }
+  if (!message.channel.nsfw) return message.reply('Only NSFW channel!')
 
   let question = encode(args.join(' '));
 
@@ -22,7 +18,17 @@ module.exports.run = async (bot, message, args, ops) => {
     .setColor(color);
   message.channel.send(embed);
 
-
-
-
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["lmg", "lm"],
+  categories: ['Fun']
+};
+
+exports.help = {
+  name: "lmgtfy",
+  description: "lmgtfy command",
+  usage: "lmgtfy <text>"
+};

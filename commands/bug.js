@@ -14,3 +14,16 @@ module.exports.run = async (bot, message, args, tools, ops) => {
 
   bot.guilds.get('504005061186420757').channels.get('508738198835298304').send(embed);
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["rbug"],
+  categories: ['General']
+};
+
+exports.help = {
+  name: "bug",
+  description: "Bug report command",
+  usage: "bug <bug>"
+};

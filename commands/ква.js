@@ -50,3 +50,15 @@ exports.run = async (bot, message, args) => {
   message.channel.send(Embed);
 
 }
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["kwa"],
+  categories: ['Fun']
+};
+
+exports.help = {
+  name: "ква",
+  description: "Symbol pepe",
+  usage: "kwa"
+};

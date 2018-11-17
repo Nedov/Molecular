@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args = []) => {
 
   //!addrole @andrew Dog Person
   if (!message.member.hasPermission("MANAGE_ROLES")) return errors.noPerms(message, "MANAGE_ROLES");
@@ -26,3 +26,16 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(`Congrats to <@${rMember.id}>, they have been given the role ${gRole.name}. We tried to DM them, but their DMs are locked.`)
   }
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["addrole"],
+  categories: ['mod commands']
+};
+
+exports.help = {
+  name: "addrole",
+  description: "Add mentioned role to user",
+  usage: "addrole <user> <role>"
+};

@@ -9,3 +9,16 @@ module.exports.run = async (bot, message, args) => {
     .setColor("#5DDAEE");
   message.channel.send(Embed)
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: true, // not used yet
+  aliases: [],
+  categories: ['Fun']
+};
+
+exports.help = {
+  name: "pdr",
+  description: "Pidor",
+  usage: "pdr"
+};

@@ -60,3 +60,16 @@ module.exports.run = async (bot, message, args) => {
 
   //end of module
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["um"],
+  categories: ['mod commands']
+};
+
+exports.help = {
+  name: "unmute",
+  description: "Unmute command",
+  usage: "unmute <user>"
+};

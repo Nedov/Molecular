@@ -43,3 +43,16 @@ exports.run = (bot, message, args) => {
     .join('')
   );
 };
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["emoji_say", "esay"],
+  categories: ['Fun']
+};
+
+exports.help = {
+  name: "saye",
+  description: "Say emoji command",
+  usage: "saye <text>"
+};

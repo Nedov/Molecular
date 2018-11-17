@@ -92,3 +92,16 @@ module.exports.run = async (bot, message, args) => {
 
   })
 }
+
+exports.conf = {
+  enabled: false, // not used yet
+  guildOnly: true, // not used yet
+  aliases: [],
+  categories: ['Economy']
+};
+
+exports.help = {
+  name: "buy",
+  description: "Buy command",
+  usage: "buy <item>"
+};

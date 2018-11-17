@@ -51,3 +51,16 @@ module.exports.run = async (bot, message, args, tools, ops) => {
 
 
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["si", "servinfp"],
+  categories: ['General']
+};
+
+exports.help = {
+  name: "si",
+  description: "Serverinfo command",
+  usage: "serverinfo"
+};

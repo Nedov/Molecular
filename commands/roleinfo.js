@@ -28,3 +28,16 @@ exports.run = (bot, message, args) => {
     embed: embed
   });
 };
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["role", "ri"],
+  categories: ['General']
+};
+
+exports.help = {
+  name: "roleinfo",
+  description: "Role info command",
+  usage: "roleinfo <roleID/roleName/mention>"
+};

@@ -25,3 +25,16 @@ module.exports.run = async (bot, message, args) => {
     message.reply("you need to provide some text to generate a QR code!");
   }
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["qr", "qrc"],
+  categories: ['Fun']
+};
+
+exports.help = {
+  name: "qrcode",
+  description: "QRcode command",
+  usage: "qrcode <text>"
+};

@@ -38,6 +38,15 @@ module.exports.run = async (bot, message, args) => {
 };
 
 
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["stat", "about"],
+  categories: ['General']
+};
+
 exports.help = {
-  name: "stats"
+  name: "stats",
+  description: "Bot stat",
+  usage: "stats"
 };

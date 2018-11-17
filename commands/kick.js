@@ -5,7 +5,7 @@ const moment = require("moment");
 
 module.exports.run = async (bot, message, args) => {
 
-  if (!message.member.hasPermission("KICK_MEMBERS")) return errors.noPerms(message, "KICK_MEMBERS");
+  if (member.highestRole.position >= message.member.highestRole.position) return errors.noPerms(message, "KICK_MEMBERS");
   if (args[0] == "help") {
     message.reply("Usage: m^kick <user> <reason>");
     return;
@@ -30,3 +30,16 @@ module.exports.run = async (bot, message, args) => {
   message.guild.member(kUser).kick(kReason);
   kickChannel.send(kickEmbed);
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["kiсk"],
+  categories: ['mod commands']
+};
+
+exports.help = {
+  name: "kick",
+  description: "Kick command",
+  usage: "kick <user> <reason>"
+};

@@ -1,19 +1,39 @@
-const db = require('quick.db');
+const Discord = require("discord.js");
+const fs = require("fs");
 
-module.exports = async (bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
 
-  if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('Sorry, you don\'t have permission to change server prefix')
-    .then(msg => msg.delete({
-      timeout: 10000
-    }));
-  if (!args.join(' ')) return message.channel.send('Please provide a prefix to change server prefix')
-    .then(msg => msg.delete({
-      timeout: 10000
-    }));
+  if (!message.member.hasPermission("MANAGE_SERVER")) return message.reply("No no no.");
+  if (!args[0] || args[0 == "help"]) return message.reply("Usage: prefix <desired prefix here>");
 
-  db.set(`prefix_${message.guild.id}`, args.join(' '))
-    .then(i => {
-      message.channel.send(`Server Prefix has been changed to ${i}`);
-    })
+  let prefixes = JSON.parse(fs.readFileSync("./storage/serverPrefixes.json", "utf8"));
 
+  prefixes[message.guild.id] = {
+    prefixes: args[0]
+  };
+
+  fs.writeFile("./storage/serverPrefixes.json", JSON.stringify(prefixes), (err) => {
+    if (err) console.log(err)
+  });
+
+  let sEmbed = new Discord.RichEmbed()
+    .setColor("#FF9900")
+    .setTitle("Prefix Set!")
+    .setDescription(`Set to ${args[0]}`);
+
+  message.channel.send(sEmbed);
+
+}
+
+exports.conf = {
+  enabled: false, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["setprefix"],
+  categories: ['mod commands']
+};
+
+exports.help = {
+  name: "command",
+  description: "Command Description",
+  usage: "command <argument>"
 };

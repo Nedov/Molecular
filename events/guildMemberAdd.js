@@ -13,6 +13,11 @@ const serverStats = {
   botCountID: '506058402452209689'
 }
 
+//PEPESTAN
+const serverStats2 = {
+  guildID: '248111395420241920',
+  totalUsersID: '513008847514763274'
+}
 
 module.exports.run = async (bot, member) => {
 
@@ -32,14 +37,16 @@ module.exports.run = async (bot, member) => {
     return ctx.font;
   };
 
-  if (member.guild.id !== serverStats.guildID) return;
+  if (member.guild.id === serverStats.guildID) {
 
-  // Molecular Support
-  bot.channels.get(serverStats.totalUsersID).setName(`Total users : ${member.guild.memberCount}`);
-  bot.channels.get(serverStats.memberCountID).setName(`Member count : ${member.guild.members.filter(m => !m.user.bot).size}`);
-  bot.channels.get(serverStats.botCountID).setName(`Bot count : ${member.guild.members.filter(m => m.user.bot).size}`);
+    // Molecular Support
+    bot.channels.get(serverStats.totalUsersID).setName(`Total users : ${member.guild.memberCount}`);
+    bot.channels.get(serverStats.memberCountID).setName(`Member count : ${member.guild.members.filter(m => !m.user.bot).size}`);
+    bot.channels.get(serverStats.botCountID).setName(`Bot count : ${member.guild.members.filter(m => m.user.bot).size}`);
 
-
+  } else if (member.guild.id === serverStats2.guildID) {
+    bot.channels.get(serverStats2.totalUsersID).setName(`🐸 Total Pepos : ${member.guild.memberCount}`);
+  }
 
   const channel = member.guild.channels.get(ch => ch.id === '505815219482918935');
   if (!channel) return;

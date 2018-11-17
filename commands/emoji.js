@@ -59,3 +59,17 @@ module.exports.run = async (bot, message, args, ops, tools) => {
   }
 
 }
+
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["einfo", "emoji_info"],
+  categories: ['General']
+};
+
+exports.help = {
+  name: "emoji",
+  description: "Emoji info command",
+  usage: "emoji :<emoji>:"
+};

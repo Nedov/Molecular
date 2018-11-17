@@ -21,3 +21,16 @@ module.exports.run = async (bot, message, args) => {
     })
     .catch(error => message.reply(`You cannot delete messages because: ${error}`));
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["clear", "delete"],
+  categories: ['mod commands']
+};
+
+exports.help = {
+  name: "purge",
+  description: "Clear command",
+  usage: "clear <count>"
+};

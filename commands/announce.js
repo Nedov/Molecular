@@ -1,7 +1,7 @@
 const send = require('quick.hook');
 const Discord = require('discord.js');
 
-module.exports.run = async (bot, message, args, tools) => {
+module.exports.run = async (bot, message, args = [], tools) => {
 
   let split = '%%';
 
@@ -45,3 +45,16 @@ module.exports.run = async (bot, message, args, tools) => {
   })
 
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["announce", "an"],
+  categories: ['General']
+};
+
+exports.help = {
+  name: "announce",
+  description: "Announce webhook",
+  usage: "announce m^announce embedTitle %% embedMsg %% msgName %% msgIcon %% embedColor"
+};

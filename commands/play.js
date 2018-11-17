@@ -37,3 +37,16 @@ module.exports.run = async (message, bot, args, ops) => {
   ops.active.set(message.guild.id, data)
 
 };
+
+exports.conf = {
+  enabled: false, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["mplay"],
+  categories: ['Music']
+};
+
+exports.help = {
+  name: "command",
+  description: "Command Description",
+  usage: "command <argument>"
+};

@@ -14,3 +14,16 @@ module.exports.run = async (bot, message, args) => {
     .setFooter("Command Ran By: " + message.author.username, message.author.avatarURL);
   message.channel.send(botembed);
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["serverlist", "sl"],
+  categories: ['General']
+};
+
+exports.help = {
+  name: "sl",
+  description: "Servers list",
+  usage: "sl"
+};

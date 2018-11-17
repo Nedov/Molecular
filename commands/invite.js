@@ -7,3 +7,16 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(`<https://discordapp.com/oauth2/authorize?client_id=${argss}&scope=bot&permissions=2146958847> invite with Administrator permission`)
   }
 };
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["inv"],
+  categories: ['General']
+};
+
+exports.help = {
+  name: "invite",
+  description: "Bots invie link",
+  usage: "invite <botID>"
+};

@@ -24,3 +24,16 @@ module.exports.run = async (bot, message, args) => {
     .setColor("#5DDAEE");
   message.channel.send(Embed)
 }
+
+exports.conf = {
+  enabled: false, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["cl"],
+  categories: ['General']
+};
+
+exports.help = {
+  name: "changelogs",
+  description: "Changelogs",
+  usage: "channels"
+};

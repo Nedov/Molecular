@@ -17,3 +17,16 @@ exports.run = async (bot, message, args) => {
   });
 
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: [],
+  categories: ['General']
+};
+
+exports.help = {
+  name: "poll",
+  description: "Poll command",
+  usage: "poll <question>?"
+};

@@ -28,3 +28,16 @@ module.exports.run = async (bot, message) => {
   });
 
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["setbal"],
+  categories: ['Economy']
+};
+
+exports.help = {
+  name: "balset",
+  description: "Add money to user balance",
+  usage: "balset <amount> <user>"
+};

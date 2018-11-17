@@ -23,3 +23,16 @@ exports.run = (bot, message, args, tools) => {
   })
 
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["rev", "reverstext"],
+  categories: ['Fun']
+};
+
+exports.help = {
+  name: "reverse",
+  description: "Text reverse command",
+  usage: "reverse <text>"
+};

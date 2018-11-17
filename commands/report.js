@@ -26,3 +26,16 @@ module.exports.run = async (bot, message, args) => {
   reportschannel.send(reportEmbed);
 
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["rep"],
+  categories: ['mod commands']
+};
+
+exports.help = {
+  name: "report",
+  description: "Report command",
+  usage: "report <user> <reason>"
+};

@@ -48,3 +48,16 @@ module.exports.run = async (bot, message, args) => {
   }
 
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: [],
+  categories: ['Fun']
+};
+
+exports.help = {
+  name: "slap",
+  description: "Slap command",
+  usage: "slap <user>"
+};

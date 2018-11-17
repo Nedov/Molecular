@@ -4,7 +4,7 @@ const moment = require("moment");
 
 
 module.exports.run = async (bot, message, args) => {
-  if (!message.member.hasPermission("BAN_MEMBERS")) return errors.noPerms(message, "BAN_MEMBERS");
+  if (member.highestRole.position >= message.member.highestRole.position) return message.channel.send('Nope');
   if (args[0] == "help") {
     message.reply("Usage: m^ban <user> <reason>");
     return;
@@ -31,3 +31,16 @@ module.exports.run = async (bot, message, args) => {
   message.guild.member(bUser).ban(bReason);
   incidentchannel.send(banEmbed);
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: [],
+  categories: ['mod commands']
+};
+
+exports.help = {
+  name: "ban",
+  description: "Ban command",
+  usage: "ban <user> <reason>"
+};

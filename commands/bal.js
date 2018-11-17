@@ -17,3 +17,16 @@ module.exports.run = async (bot, message, args) => {
   })
 
 }
+
+exports.conf = {
+  enabled: false, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["balance"],
+  categories: ['Economy']
+};
+
+exports.help = {
+  name: "balance",
+  description: "Show user balance",
+  usage: "bal <user>"
+};

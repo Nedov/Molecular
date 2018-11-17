@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 exports.run = (bot, message, args, tools) => {
 
   // Define user, if nobody is mentioned it will store author
-  let user = message.author || message.mentions.roles.first() || message.guild.members.get(args[0]) || message.guild.members.find(member => member.name === args[0]);
+  let user = message.mentions.users.first() || message.author;
 
   // Form Embed
   const embed = new Discord.RichEmbed()
@@ -13,5 +13,17 @@ exports.run = (bot, message, args, tools) => {
 
   // Send Message
   message.channel.send(embed)
-
 }
+
+exports.conf = {
+  enabled: true, // not used yet
+  guildOnly: false, // not used yet
+  aliases: ["ava", "photo"],
+  categories: ['General']
+};
+
+exports.help = {
+  name: "avatar",
+  description: "Show user avatar",
+  usage: "avatar <user>"
+};

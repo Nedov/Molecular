@@ -37,6 +37,8 @@
     "tempy": "^0.2.1",
     "time-ago": "^0.2.1",
     "util": "^0.11.1",
-    "ytdl-core": "^0.27.0"
+    "ytdl-core": "^0.27.0",
+    "canvas-constructor": "^1.0.1",
+    "canvas-progress-bar": "^1.0.3"
   }
 }

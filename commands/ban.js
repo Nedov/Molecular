@@ -4,7 +4,7 @@ const moment = require("moment");
 
 
 module.exports.run = async (bot, message, args) => {
-  if (member.highestRole.position >= message.member.highestRole.position) return message.channel.send('Nope');
+  if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send('Nope');
   if (args[0] == "help") {
     message.reply("Usage: m^ban <user> <reason>");
     return;

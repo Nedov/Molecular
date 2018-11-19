@@ -94,21 +94,6 @@ bot.on("message", async message => {
   }
 
 
-  // if (message.author.bot) return;
-  // if (message.channel.type != 'text') return message.channel.send('Please use commands in the server!')
-
-  // // Global Settings - We need the prefix to change every time a message is run.
-  // db.fetch(`guildPrefix_${message.guild.id}`).then(i => { // This fetches the current prefix, if none is supplied it would be an empty string.
-  //
-  //   let prefix;
-  //
-  //   if (i.text) { // This will run if i.text(exisiting prefix) is defined...
-  //     prefix = i.text
-  //   } else { // This will run if i.text(existing prefix) is not defined...
-  //     prefix = 'm^' // You can set this to your default prefix
-  //   }
-  // })
-
 });
 
 bot.reload = function(command) {
@@ -131,41 +116,7 @@ bot.reload = function(command) {
     }
   });
 };
-// LEVEL
-// bot.on("message", message => {
-//   if(message.guild.id !== "504005061186420757") return;
-//
-//
-//   if(message.author.bot) return;
-//   let xpAdd = Math.floor(Math.random() * 7) + 8;
-//    console.log(xpAdd);
-//
-//    if(!xp[message.author.id]){
-//      xp[message.author.id] = {
-//        xp: 0,
-//        level: 1
-//      };
-//    }
-//
-//    let color = message.member.displayHexColor;
-//
-//    let curxp = xp[message.author.id].xp;
-//    let curlvl = xp[message.author.id].level;
-//    let nxtLvl = xp[message.author.id].level * 300;
-//    xp[message.author.id].xp =  curxp + xpAdd;
-//    if(nxtLvl <= xp[message.author.id].xp){
-//      xp[message.author.id].level = curlvl + 1;
-//      let lvlup = new Discord.RichEmbed()
-//      .setTitle("Level Up!")
-//      .setColor(color)
-//      .addField("New Level", curlvl + 1);
-//
-//      message.channel.send(lvlup).then(msg => {msg.delete(5000)});
-//    }
-//    fs.writeFile("./storage/xp.json", JSON.stringify(xp), (err) => {
-//      if(err) console.log(err)
-//    });
-// })
+
 
 
 bot.setInterval(() => {
@@ -181,7 +132,22 @@ bot.setInterval(() => {
 
 }, 10 * 1000);
 
-
+bot.on('message', async message => {
+  if (message.author.bot) return;
+  if (message.content.startsWith('лао')) { //слово и 3 варианта ответа с рандомным выбором
+    let randomanswer = ['дао', 'бао']
+    const ranswer = randomanswer[Math.floor(Math.random() * randomanswer.length)]
+    message.channel.send(ranswer)
+  } else if (message.content.startsWith('дао')) {
+    let randomanswer2 = ['лао', 'бао']
+    const ranswer2 = randomanswer2[Math.floor(Math.random() * randomanswer2.length)]
+    message.channel.send(ranswer2)
+  } else if (message.content.startsWith('бао')) {
+    let randomanswer3 = ['лао', 'дао']
+    const ranswer3 = randomanswer3[Math.floor(Math.random() * randomanswer3.length)]
+    message.channel.send(ranswer3)
+  }
+});
 // bot.on('messageDelete', message => {
 //   const arr = [];
 //   message.attachments.map(c => arr.push(c.proxyURL));
@@ -193,53 +159,6 @@ bot.setInterval(() => {
 //   });
 // })
 
-// bot.on('guildMemberAdd', member => { // Make sure this is defined correctly.
-//
-//
-//   // The code will go here, inside the other fetch. If you don't have that fetch don't worry just put it in bot.on('guildMemberAdd').
-//
-//   // Fetch the channel we should be posting in - FIRST, we need to require db in this app.js
-//   let i = db.fetch(`messageChannel_${member.guild.id}`)
-//
-//   // Fetch Welcome Message (DMs)
-//   let o = db.fetch(`joinMessageDM_${member.guild.id}`)
-//
-//   // DM User
-//   if (!o.text) console.log('Error: Join DM Message not set. Please set one using ~setdm <message>'); // This will log in console that a guild didn't set this up, you dont need to include the conosle.log
-//   else tools.embed(member, o.text.replace('{user}', member).replace('{members}', member.guild.memberCount)) // This is where the embed toolstion comes in, as well as replacing the variables we added earlier in chat.
-//
-//   // Now, return if no message channel is defined
-//   if (!member.guild.channels.get(i.text)) return console.log('Error: Welcome/Leave channel not found. Please set one using ~setchannel #channel') // Again, this is optional. just the console.log not the if statement, we still want to return
-//
-//   // Fetch the welcome message
-//   let p = db.fetch(`joinMessage_${member.guild.id}`)
-//
-//   // Check if they have a join message
-//   if (!p.text) console.log('Error: User Join Message not found. Please set one using ~setwelcome <message>')
-//   else tools.embed(member.guild.channels.get(i.text), p.text.replace('{user}', member).replace('{members}', member.guild.memberCount)) // We actually want to send the message.
-//
-//
-// });
-//
-// // Now, since we're done with the welcome. lets do the leave
-// bot.on('guildMemberRemove', member => {
-//
-//   // Fetch Channel
-//   let i = db.fetch(`messageChannel_${member.guild.id}`)
-//
-//   // If the channel is not found, return.
-//   if (!member.guild.channels.get(i.text)) return console.log('Error: Welcome/Leave channel not found. Please set one using ~setchannel #channel')
-//
-//   // Fetch Leave Message
-//   let o = db.fetch(`leaveMessage_${member.guild.id}`)
-//
-//   // Check if o.text is defined
-//   if (!o.text) console.log('Error: User leave message not found. Please set one using ~setleave <message>')
-//   else tools.embed(member.guild.channels.get(i.text), o.text.replace('{user}', member).replace('{members}', member.guild.memberCount)) // Now, send the message.
-//
-//
-//
-// });
 
 
 

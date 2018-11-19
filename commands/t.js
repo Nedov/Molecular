@@ -1,12 +1,12 @@
-const Discord = require("discord.js")
-const errors = require("../utils/errors.js");
+const Discord = require("discord.js");
+const config = require('../config.json');
 const moment = require("moment");
 
 
 module.exports.run = async (bot, message, args) => {
 
 
-  if (!message.member.hasPermission("BAN_MEMBERS")) return errors.noPerms(message, "BAN_MEMBERS");
+  if (!config.mban.includes(message.author.id)) return message.channel.send(`<@${message.author.id}> You don\'t to have permissions`);
 
 
   if (!args[0] || isNaN(args[0])) return message.channel.send('Please, enter a user ID');

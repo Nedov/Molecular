@@ -1,27 +1,27 @@
-const economy = require('discord-eco');
+const db = require('quick.db')
+const Discord = require('discord.js')
 
-module.exports.run = async (bot, message, args) => {
+exports.run = async (bot, message, args) => {
 
+  var user = message.mentions.users.first() || message.author;
 
-  let definduser = '';
-  if (!args[1]) {
-    definduser = message.author.id;
-  } else {
-    let firsmentioned = message.mentions.users.first();
-    definduser = firsmentioned.id;
-  }
+  var balance = await db.fetch(`userBalance_${user.id}`)
 
+  if (balance === null) balance = 50;
 
-  economy.fetchBalance(definduser + message.guild.id).then((i) => {
-    message.channel.send('You have ' + i.money + ' coins')
-  })
+  var embed = new Discord.RichEmbed()
+    .setTitle('Coin Balance')
+    .setDescription(`${user.username}, **your balance:\n:dollar: $${balance}**`)
+    .setColor('#ffffff')
+    .setFooter('Requested By ' + message.author.tag, message.author.avatarURL)
+  message.channel.send(embed)
 
 }
 
 exports.conf = {
   enabled: false, // not used yet
   guildOnly: false, // not used yet
-  aliases: ["balance"],
+  aliases: ["bal"],
   categories: ['Economy']
 };
 

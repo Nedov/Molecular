@@ -91,7 +91,16 @@ exports.run = async(bot, message, args, ops) => {
               .then(async (collected) => {
                 await toverify.removeRole(delrole.id);
             await toverify.addRole(verifyrole.id);
-                message.channel.send(`You got the right awnser! You received **nothing!**`)
+                                message.channel.send(`You got the right awnser! You received **nothing!**`).then(msg => msg.delete(5000))
+                        let verifembed = new Discord.RichEmbed()
+                            .setTitle("Verified Users - Logs")
+                            .setThumbnail(toverify.user.avatarURL)
+                            .setColor('#a5f23a')
+                            .addField("Verified User", `${toverify}`, true)
+                            .setTimestamp();
+                         let veriflog = message.guild.channels.find(`name`, "verify-logs");
+                        if (!veriflog) return message.channel.send("Could not find the `Verification User Log Channel.`").then(msg => msg.delete(5000));
+                         veriflog.send(verifembed);
               })
           .catch(collected => {
             console.log(collected); 

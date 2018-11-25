@@ -6,7 +6,6 @@ const snekfetch = require('snekfetch');
 exports.run = async(bot, message, args, ops) => {
   message.delete();
 
-  
   let toverify = message.member;
 
   const captcha = Math.random().toString(36).slice(-10);
@@ -94,7 +93,10 @@ exports.run = async(bot, message, args, ops) => {
             await toverify.addRole(verifyrole.id);
                 message.channel.send(`You got the right awnser! You received **nothing!**`)
               })
-          .catch(collected => {console.log(collected); message.channel.send('You have run out of time!')});
+          .catch(collected => {
+            console.log(collected); 
+            message.channel.send('You have run out of time!')
+          });
       })
   }
 

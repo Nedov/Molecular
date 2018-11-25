@@ -6,6 +6,7 @@ const snekfetch = require('snekfetch');
 exports.run = async(bot, message, args, ops) => {
   message.delete();
 
+  
   let toverify = message.member;
 
   const captcha = Math.random().toString(36).slice(-10);

@@ -89,7 +89,7 @@ exports.run = async(bot, message, args, ops) => {
       message.channel.send(attachment).then(msg => msg.delete(25000)).then(() => {
         message.channel.awaitMessages(m => m.content.match(captcha) && m.author.id === message.author.id, {max: 1, time: 20000, errors: ['time']})
               .then(async (collected) => {
-const role = member.guild.roles.find(role => role.name === 'person');
+const role = member.guild.roles.find(role => role.name === 'Новички');
 if (!role) return;
 await toverify.addRole(role.id);
 await toverify.removeRole(delrole.id);

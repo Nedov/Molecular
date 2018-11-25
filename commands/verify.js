@@ -90,7 +90,7 @@ exports.run = async(bot, message, args, ops) => {
         message.channel.awaitMessages(m => m.content.match(captcha) && m.author.id === message.author.id, {max: 1, time: 20000, errors: ['time']})
               .then(async (collected) => {
                 var role = member.guild.roles.find(`name`, "Новички");
-                  await toverify.addRole(role)
+                  await toverify.addRole(role.id)
                 await toverify.removeRole(delrole.id);
             await toverify.addRole(verifyrole.id);
                 message.channel.send(`You got the right awnser! You received **nothing!**`).then(msg => msg.delete(5000))

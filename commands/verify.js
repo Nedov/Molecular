@@ -92,8 +92,6 @@ exports.run = async(bot, message, args, ops) => {
 
 await toverify.removeRole(delrole.id);
 await toverify.addRole(verifyrole.id);
-          const role = member.guild.roles.find(role => role.name === 'Новички');
-await toverify.addRole(role.id);
                 message.channel.send(`You got the right awnser! You received **nothing!**`).then(msg => msg.delete(5000))
                         let verifembed = new Discord.RichEmbed()
                             .setTitle("Verified Users - Logs")

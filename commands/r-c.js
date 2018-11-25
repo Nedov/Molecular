@@ -13,7 +13,7 @@ exports.run = (bot, message, args) => {
   if (!command) {
     return message.channel.sendMessage(`I cannot find the command: ${args[0]}`);
   } else {
-    message.channel.sendMessage(`Reloading: ${command}`).then(msg => msg.delete(5000))
+    message.channel.sendMessage(`Reloading: ${command}`)
       .then(m => {
         bot.reload(command)
           .then(() => {

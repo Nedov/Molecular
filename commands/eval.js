@@ -19,7 +19,7 @@ const cowsay = require('cowsay');
 const superagent = require("superagent");
 const config = require("../config.json");
 
-module.exports.run = async (bot, message, args, ops) => {
+module.exports.run = async (bot, message, args) => {
 
   if (!config.owners.includes(message.author.id)) return message.channel.send(`<@${message.author.id}> You don'\t to have permissions`);
 

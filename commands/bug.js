@@ -1,18 +1,35 @@
 const Discord = require('discord.js');
+const superagent = require("superagent");
 
-module.exports.run = async (bot, message, args, tools, ops) => {
+module.exports.run = async (bot, message, args, tools) => {
 
-  let rreason = args.join(" ").slice(0);
-  if (!rreason) return message.channel.send('Describe the bug');
-
-
-  const embed = new Discord.RichEmbed()
-    .setTitle('Bug report')
-    .setDescription(rreason)
-    .addField('Reported By', message.author.tag)
-    .addField('Server', message.guild.name)
-
-  bot.guilds.get('504005061186420757').channels.get('508738198835298304').send(embed);
+  try {
+     function clean(text) {
+        if (typeof(text) === 'string')
+          return text.replace(/`/g, '`' + String.fromCharCode(8203)).replace(/@/g, '@' + String.fromCharCode(8203));
+        else
+          return text;
+      }
+      const bug = args.join(" ")
+      if (!bug) return message.channel.send('Please specify a bug!')
+      const content = clean(`**${message.author.username}**#${message.author.discriminator} (${message.author.id}) reported a bug:\n${bug}\nServer: **${message.guild.name}**\nID: **${message.guild.id}**`);
+      const id = '506343805729898507';
+      new Promise((resolve, reject) => {
+        superagent.post(`https://discordapp.com/api/channels/${id}/messages`)
+          .set('Authorization', `Bot ${bot.token}`).send({ content })
+          .end((err, res) => {
+            if (err) {
+              reject(err);
+              message.reply('There was an error while sending your bug report to Frogbot Support. Please try again later.');
+            } else {
+              resolve(res);
+              message.channel.send(`:white_check_mark: **${message.author.username}**, your bug report has successfully been submitted to Frogbot Support for review. Thank you!.`);
+            }
+          });
+      });
+  }  catch (err) {
+  console.log(err)
+  }
 }
 
 exports.conf = {

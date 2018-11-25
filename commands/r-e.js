@@ -1,16 +1,15 @@
 const config = require("../config.json");
 
-exports.run = (bot, message, args, ops) => {
+exports.run = (bot, message, args) => {
 
   if (!config.owners.includes(message.author.id)) return message.channel.send(`<@${message.author.id}> You don'\t to have permissions`);
-  if (!args || args.size < 1) return message.reply("Enter a event name.");
 
   try {
-    delete require.cache[require.resolve(`../events/${args[0]}.js`)];
+    delete require.cache[require.resolve(`../Molecular`)];
 
   } catch (e) {
 
-    return message.channel.send(`Cannot reload: ${args[0]}`);
+    return console.log(e);
   }
 
   message.reply(`Successfully restarted **${config.prefix}${args[0]}**`);

@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const moment = require("moment");
 const config = require("../config.json");
 
-exports.run = async (bot, message, args, ops) => {
+exports.run = async (bot, message, args) => {
 
   if (!config.owners.includes(message.author.id)) return message.channel.send(`<@${message.author.id}> sry`);
 

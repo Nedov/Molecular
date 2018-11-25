@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const moment = require('moment');
 
-module.exports.run = async (bot, message, args, tools, ops) => {
+module.exports.run = async (bot, message, args, tools) => {
 
 
   let ver = {
@@ -14,6 +14,7 @@ module.exports.run = async (bot, message, args, tools, ops) => {
     const embed = new Discord.RichEmbed()
       .setThumbnail(message.guild.iconURL)
       .addField('Owner', message.guild.owner)
+      .addField('Server Name', message.guild.name)
       .addField('Server Created', `${moment.parseZone(message.guild.createdAt).locale('en').format('dddd, L, HH:mm')}`)
       .addField('Members', `${message.guild.memberCount} members
   ឵ ឵឵ ឵${message.guild.members.filter(m=> m.presence.status == 'online').size} online
@@ -35,6 +36,7 @@ module.exports.run = async (bot, message, args, tools, ops) => {
     const embed1 = new Discord.RichEmbed()
       .setThumbnail(guil.iconURL)
       .addField('Owner', guil.owner)
+      .addField('Server Name', message.guil.name)
       .addField('Server Created', `${moment.parseZone(guil.createdAt).locale('en').format('dddd, L, HH:mm')}`)
       .addField('Members', `${guil.memberCount} members
     ឵ ឵឵ ឵${guil.members.filter(m=> m.presence.status == 'online').size} online
@@ -55,12 +57,12 @@ module.exports.run = async (bot, message, args, tools, ops) => {
 exports.conf = {
   enabled: true, // not used yet
   guildOnly: false, // not used yet
-  aliases: ["si", "servinfp"],
+  aliases: ["si", "servinfo"],
   categories: ['General']
 };
 
 exports.help = {
-  name: "si",
+  name: "serverinfo",
   description: "Serverinfo command",
   usage: "serverinfo"
 };

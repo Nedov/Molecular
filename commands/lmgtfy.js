@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const encode = require('strict-uri-encode');
 
-module.exports.run = async (bot, message, args, ops) => {
+module.exports.run = async (bot, message, args) => {
   if (!message.channel.nsfw) return message.reply('Only NSFW channel!')
 
   let question = encode(args.join(' '));

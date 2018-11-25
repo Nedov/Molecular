@@ -1,6 +1,6 @@
 const config = require("../config.json");
 
-exports.run = (bot, message, args, ops) => {
+exports.run = (bot, message, args) => {
 
   if (!config.owners.includes(message.author.id)) return message.channel.send(`<@${message.author.id}> You don\'t to have permissions`);
 
@@ -13,7 +13,7 @@ exports.run = (bot, message, args, ops) => {
   if (!command) {
     return message.channel.sendMessage(`I cannot find the command: ${args[0]}`);
   } else {
-    message.channel.sendMessage(`Reloading: ${command}`)
+    message.channel.sendMessage(`Reloading: ${command}`).then(msg => msg.delete(5000))
       .then(m => {
         bot.reload(command)
           .then(() => {

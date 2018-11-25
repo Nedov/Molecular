@@ -8,7 +8,7 @@ exports.run = (bot, message, args, tools) => {
   // Form Embed
   const embed = new Discord.RichEmbed()
     .setColor(0xffffff) // This will set the embed sidebar color
-    .setTitle(user.username) // This will set the embed title
+    .setDescription(`[${user.username}'s' avatar](${user.avatarURL})`) // This will set the embed title
     .setImage(user.avatarURL) // This will set the embed image
 
   // Send Message

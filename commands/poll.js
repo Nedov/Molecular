@@ -13,7 +13,11 @@ exports.run = async (bot, message, args) => {
   await message.channel.send(pollTopic).then(embedMessage => {
     embedMessage.react('👍').then(r => {
       embedMessage.react('👎')
+    }).catch(error => {
+      console.log(error)
     })
+  }).catch(error => {
+    console.log(error)
   });
 
 }

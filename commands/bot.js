@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-module.exports.run = async (bot, message, args, tools, ops) => {
+module.exports.run = async (bot, message, args, tools) => {
 
   let rreason = args.join(" ").slice(0);
   if (!rreason) return message.channel.send('Опишите желаемый функционал бота');

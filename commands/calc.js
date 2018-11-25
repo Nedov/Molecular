@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args, tools) => {
 exports.conf = {
   enabled: true, // not used yet
   guildOnly: false, // not used yet
-  aliases: ["calculate", "calculator"],
+  aliases: ["calculate", "calc"],
   categories: ['General']
 };
 

@@ -17,15 +17,14 @@ const math = require('mathjs');
 const xp = require('./storage/xp.json')
 const Canvas = require('canvas');
 const snekfetch = require('snekfetch');
-const active = new Map();
 const items = JSON.parse(fs.readFileSync('items.json', 'utf-8'));
 let cooldown = new Set();
 let cdseconds = 5;
 
 
-let ops = {
-  active: active
-}
+bot.login(process.env.BOT_TOKEN);
+
+
 const log = (msg) => {
   console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] ${msg}`);
 };
@@ -61,6 +60,11 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 
+// bot.on('messageReactionAdd', (reaction, user) => {
+//   console.log(user + ' убраль ' + reaction.emoji.name);
+//
+// });
+
 bot.on("error", console.error);
 bot.on("message", async message => {
 
@@ -90,8 +94,9 @@ bot.on("message", async message => {
     commands = bot.commands.get(bot.categories.get(command));
   }
   if (commands) {
-    commands.run(bot, message, args, tools, ops);
+    commands.run(bot, message, args, tools);
   }
+
 
 
 });
@@ -148,18 +153,3 @@ bot.on('message', async message => {
     message.channel.send(ranswer3)
   }
 });
-// bot.on('messageDelete', message => {
-//   const arr = [];
-//   message.attachments.map(c => arr.push(c.proxyURL));
-//   arr.forEach(p => {
-//     const embet = new Discord.RichEmbed()
-//       .setTitle('Logs')
-//       .setDescription(p)
-//     message.channel.send(embet)
-//   });
-// })
-
-
-
-
-bot.login(process.env.BOT_TOKEN);

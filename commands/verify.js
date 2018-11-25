@@ -101,7 +101,7 @@ exports.run = async(bot, message, args, ops) => {
 
 
 }
-}
+
 
 exports.conf = {
   enabled: true, // not used yet

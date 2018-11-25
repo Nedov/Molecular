@@ -89,24 +89,8 @@ exports.run = async(bot, message, args, ops) => {
       message.channel.send(attachment).then(msg => msg.delete(25000)).then(() => {
         message.channel.awaitMessages(m => m.content.match(captcha) && m.author.id === message.author.id, {max: 1, time: 20000, errors: ['time']})
               .then(async (collected) => {
-                if(message.guild.id == '435349219340058625') {
-                  let ml = message.guild.roles.find('name', 'Новички');
-                  await toverify.removeRole(delrole.id);
-              await toverify.addRole(verifyrole.id);
-              await toverify.addRole(ml);
-              message.channel.send(`You got the right awnser! You received **nothing!**`).then(msg => msg.delete(5000))
-                      let verifembed = new Discord.RichEmbed()
-                          .setTitle("Verified Users - Logs")
-                          .setThumbnail(toverify.user.avatarURL)
-                          .setColor('#a5f23a')
-                          .addField("Verified User", `${toverify}`, true)
-                          .setTimestamp();
-
-                      let veriflog = message.guild.channels.find(`name`, "verify-logs");
-                      if (!veriflog) return message.channel.send("Could not find the `Verification User Log Channel.`").then(msg => msg.delete(5000));
-
-                      veriflog.send(verifembed);
-                } else {
+                var role = member.guild.roles.find(`name`, "Новички");
+                  await toverify.addRole(role)
                 await toverify.removeRole(delrole.id);
             await toverify.addRole(verifyrole.id);
                 message.channel.send(`You got the right awnser! You received **nothing!**`).then(msg => msg.delete(5000))
@@ -121,7 +105,6 @@ exports.run = async(bot, message, args, ops) => {
                         if (!veriflog) return message.channel.send("Could not find the `Verification User Log Channel.`").then(msg => msg.delete(5000));
 
                         veriflog.send(verifembed);
-                      }
               })
           .catch(collected => {
             console.log(collected);

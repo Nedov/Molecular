@@ -88,7 +88,7 @@ exports.run = async (bot, message, args, ops) => {
     return message.channel.send((verifyEmbed)).then(msg => msg.delete(5000));
   } else {
 
-    message.channel.send(attachment).then(msg => msg.delete(20000)).then(() => {
+    message.channel.send(attachment).then(() => {
       message.channel.awaitMessages(m => m.content.match(captcha) && m.author.id === message.author.id, {
           max: 1,
           time: 15000,

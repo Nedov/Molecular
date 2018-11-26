@@ -8,7 +8,7 @@ exports.run = async (bot, message, args, ops) => {
 
   let toverify = message.member;
 
-  const captcha = Math.random().toString(36).slice(-10);
+  const captcha = Math.random().toString(36).slice(-4);
 
 
 

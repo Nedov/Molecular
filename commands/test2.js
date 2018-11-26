@@ -4,13 +4,17 @@ const db = require('quick.db')
 
 module.exports.run = async (bot, message, args) => {
 
-  // Admin Perms
-  let bluecircle = args[0];
-  let redcircle = args[1];
+
+  let bluecircle = '12345';
+  let redcircle = '67890';
   let embed = new Discord.RichEmbed()
     .setTitle('Would You Rather?')
     .setDescription(`🔵 ${bluecircle}\n\nOr\n\n🔴 ${redcircle}`)
-  message.channel.send(embed)
+  message.channel.send(embed).then(embedMessage => {
+    embedMessage.react('🔵').then(r => {
+      embedMessage.react('🔴')
+    }) // Red
+  }) // Blue
 }
 
 

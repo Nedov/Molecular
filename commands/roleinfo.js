@@ -10,20 +10,20 @@ exports.run = (bot, message, args) => {
     false: "Nope"
   };
 
-    let roles = [];
-    let indexes = [];
+  let roles = [];
+  let indexes = [];
 
-    // We want to run through each member in the server, and add them to those arrays
-    message.guild.roles.forEach(function(role){ // This function will run through each member in the guild.
-      roles.push(role.name);
-      indexes.push(role.id); // This will push both the ID and username into the arrays
-    });
+  // We want to run through each member in the server, and add them to those arrays
+  message.guild.roles.forEach(function(role) { // This function will run through each member in the guild.
+    roles.push(role.name);
+    indexes.push(role.id); // This will push both the ID and username into the arrays
+  });
 
-    // Now, we can find the item in the array that best matches the arguments they wrote in chat.
-    let match = sm.findBestMatch(args.join(' '), roles); // What this does is finds the best match from 'args', when joined.
-    // `match` now holds an object with the bestmatch, this object can be seen on the `string-similarity` npm page.
-    let name = match.bestMatch.target; // This now holds the username of the bestmatch.
-    // To get the userID of the bestmatch, we now have to access the indexes array.
+  // Now, we can find the item in the array that best matches the arguments they wrote in chat.
+  let match = sm.findBestMatch(args.join(' '), roles); // What this does is finds the best match from 'args', when joined.
+  // `match` now holds an object with the bestmatch, this object can be seen on the `string-similarity` npm page.
+  let name = match.bestMatch.target; // This now holds the username of the bestmatch.
+  // To get the userID of the bestmatch, we now have to access the indexes array.
 
 
   // Tries to get the first mentioned role or a role ID or a role name (role names are case sensitive)

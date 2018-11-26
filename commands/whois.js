@@ -7,18 +7,15 @@ module.exports.run = async (bot, message, args) => {
 
   let members = [];
   let indexes = [];
-
-  // We want to run through each member in the server, and add them to those arrays
-  message.guild.members.forEach(function(member){ // This function will run through each member in the guild.
+  message.guild.members.forEach(function(member) {
     members.push(member.user.username);
-    indexes.push(member.id); // This will push both the ID and username into the arrays
+    indexes.push(member.id);
   });
 
-  // Now, we can find the item in the array that best matches the arguments they wrote in chat.
-  let match = sm.findBestMatch(args.join(' '), members); // What this does is finds the best match from 'args', when joined.
-  // `match` now holds an object with the bestmatch, this object can be seen on the `string-similarity` npm page.
-  let username = match.bestMatch.target; // This now holds the username of the bestmatch.
-  // To get the userID of the bestmatch, we now have to access the indexes array.
+  let match = sm.findBestMatch(args.join(' '), members);
+
+  let username = match.bestMatch.target;
+
 
   let member = message.mentions.members.first() || message.guild.members.get(args[0]) || message.guild.members.get(indexes[members.indexOf(username)]) || message.member;
 

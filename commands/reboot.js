@@ -8,8 +8,8 @@ exports.run = async (bot, message, args, level) => {
   // unload all commands before shutting down
 
   // you can always leave out this code // (cmd part)
-  bot.commands.forEach( async cmd => {
-    await bot.unloadCommand(cmd);
+  bot.commands.forEach( async commands  => {
+    await bot.unloadCommand(commands);
   }); // end of cmd function
 
   // shut down the bot

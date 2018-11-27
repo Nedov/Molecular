@@ -8,7 +8,7 @@ exports.run = async (bot, message, args, ops) => {
 
   let toverify = message.member;
 
-  const captcha = Math.random().toString(36).slice(-10);
+  const captcha = Math.random().toString(36).slice(-4);
 
 
 
@@ -110,7 +110,7 @@ exports.run = async (bot, message, args, ops) => {
         })
         .catch(collected => {
           console.log(collected);
-          message.channel.send('You have run out of time!')
+          message.channel.send('You have run out of time!').then(msg => msg.delete(5000));
         });
     })
   }

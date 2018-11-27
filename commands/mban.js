@@ -24,7 +24,8 @@ module.exports.run = async (bot, message, args) => {
       });
     try {
     await tomute.send(`Ты зобанен по причине "пидорас" \nхочешь вернуться? \nпиши в лс @! ЛАОДАО#6666\nYou're banned for ${bReason}\nwanna go back? \nwrite in DM @! LAODAO#6666\n\nThe union of Pepestan's servers:\nhttps://discord.gg/TVw8NKv    <-Republic of Pepestan (russian server)\nhttps://discord.gg/ufkZrXC   <--  ! Pepe's Kungahus  (english server)\nhttps://discord.gg/fAHf8bC   <--  ➤Dizzy 2.0  (english server)\nhttps://discord.gg/uRbSmD6   <--  ! Regression   (russian server)\nhttps://discord.gg/NS58VYv   <--  VOEP  (russian server)`) // Пишет в лс челу`} catch (e) {
-    message.channel.send(`A user has been banned... but their DMs are locked. They will be banned for ${bReason}`) //Если ошибка пишет на сирвер
+    } catch (e) {
+      message.channel.send(`A user has been banned... but their DMs are locked. They will be banned for ${bReason}`) //Если ошибка пишет на сирвер
   }
      
 

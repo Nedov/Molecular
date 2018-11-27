@@ -10,7 +10,7 @@ exports.run = (bot, message, args) => {
       .setAuthor("Hi " + message.author.username)
       .setDescription("Thanks for inviting your bot! It will be tested and added to the guild shortly")
       .addField('Bot: ', u.tag, true)
-      .addField('Bot ID: ', bot, true)
+      .addField('Bot ID: ', botik, true)
       .addField('Owner: ', message.author.tag, true)
       .addField("Prefix: ", `${args[1]}`, true)
       .setTimestamp()

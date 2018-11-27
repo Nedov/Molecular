@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 
 exports.run = (bot, message, args) => {
+  
 
   let bot = args[0];
   bot.fetchUser(bot).then(u => {

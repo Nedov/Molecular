@@ -5,7 +5,7 @@ exports.run = (bot, message, args) => {
   
 
   let botik = args[0];
-  bot.fetchUser(bot).then(u => {
+  bot.fetchUser(botik).then(u => {
     const embed = new Discord.RichEmbed()
       .setAuthor("Hi " + message.author.username)
       .setDescription("Thanks for inviting your bot! It will be tested and added to the guild shortly")

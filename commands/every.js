@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = async (bot, message, args) => {
-  if (message.author.id !== '451267321772900352') return message.channel.send('Missing permission')
+  if (message.author.id !== '295468625240915968') return message.channel.send('Missing permission')
   let argss = args.join(' ')
   if (!argss[0] || argss.length > 18 || argss.length < 18 || isNaN(argss)) return message.channel.send('Please, enter a valid role ID');
   if (argss) {

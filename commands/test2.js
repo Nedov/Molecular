@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 
 exports.run = (bot, message, args) => {
 
-  let bot = args[0];
+  let botik = args[0];
   bot.fetchUser(bot).then(u => {
     const embed = new Discord.RichEmbed()
       .setAuthor("Hi " + message.author.username)

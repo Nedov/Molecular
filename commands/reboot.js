@@ -1,5 +1,5 @@
 const {RichEmbed} = require("discord.js"); // [package required: discord.js]
-exports.run = async (bot, message, args, level) => {
+exports.run = async (bot, message, args) => {
   // EMBED
   let embed = new RichEmbed()
   .setColor("#ff1d00")

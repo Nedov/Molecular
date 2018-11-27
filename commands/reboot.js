@@ -15,8 +15,8 @@ exports.run = async (bot, message, args) => {
   }); // end of cmd function
 
   // shut down the bot
- bot.destroy()
-  bot.login(process.env.BOT_TOKEN)
+    process.exit(1)
+    bot.login(process.env.BOT_TOKEN)
 }; // end of code
 
 exports.conf = {

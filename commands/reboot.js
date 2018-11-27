@@ -1,4 +1,5 @@
 const {RichEmbed} = require("discord.js"); // [package required: discord.js]
+const config = require('../config.json');
 exports.run = async (bot, message, args) => {
   // EMBED
     if (!config.owners.includes(message.author.id)) return message.channel.send(`<@${message.author.id}> You don'\t to have permissions`);

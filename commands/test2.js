@@ -1,20 +1,22 @@
 const Discord = require("discord.js");
-const db = require('quick.db')
 
 
-module.exports.run = async (bot, message, args) => {
+exports.run = (bot, message, args) => {
 
-
-  let bluecircle = '12345';
-  let redcircle = '67890';
-  let embed = new Discord.RichEmbed()
-    .setTitle('Would You Rather?')
-    .setDescription(`🔵 ${bluecircle}\n\nOr\n\n🔴 ${redcircle}`)
-  message.channel.send(embed).then(embedMessage => {
-    embedMessage.react('🔵').then(r => {
-      embedMessage.react('🔴')
-    }) // Red
-  }) // Blue
+  let bot = args[0];
+  bot.fetchUser(bot).then(u => {
+    const embed = new Discord.RichEmbed()
+      .setAuthor("Hi " + message.author.username)
+      .setDescription("Thanks for inviting your bot! It will be tested and added to the guild shortly")
+      .addField('Bot: ', u.tag, true)
+      .addField('Bot ID: ', bot, true)
+      .addField('Owner: ', message.author.tag, true)
+      .addField("Prefix: ", `${args[1]}`, true)
+      .setTimestamp()
+      .setThumbnail(u.displayAvatarURL)
+      .setColor("RANDOM")
+    message.reply(embed)
+  })
 }
 
 

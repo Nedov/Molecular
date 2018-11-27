@@ -3,7 +3,8 @@ const Discord = require("discord.js");
 
 exports.run = (bot, message, args) => {
   
-
+if (args[0] > 18 || args[0] < 18) return message.channel.send('Enter a vaild Bot ID').then(msg => msg.delete(5000));
+  if (args[1] > 7) return message.channel.send('Your prefix too long').then(msg => msg.delete(5000));
   let botik = args[0];
   bot.fetchUser(botik).then(u => {
     const embed = new Discord.RichEmbed()
@@ -16,7 +17,7 @@ exports.run = (bot, message, args) => {
       .setTimestamp()
       .setThumbnail(u.displayAvatarURL)
       .setColor("RANDOM")
-    message.reply(embed)
+    message.channel.send(embed)
   })
 }
 

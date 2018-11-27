@@ -1,6 +1,8 @@
 const {RichEmbed} = require("discord.js"); // [package required: discord.js]
 exports.run = async (bot, message, args) => {
   // EMBED
+    if (!config.owners.includes(message.author.id)) return message.channel.send(`<@${message.author.id}> You don'\t to have permissions`);
+
   let embed = new RichEmbed()
   .setColor("#ff1d00")
   .setTitle("Bot is shutting down!")

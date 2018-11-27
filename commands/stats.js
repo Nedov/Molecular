@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
       .setAuthor(bot.user.username)
       .setTitle("***BOT Stats***")
       .setColor("RANDOM")
-      .setDescription(`[Support Server](https://discord.gg/dByeEJX) | [Invite](https://discordapp.com/oauth2/authorize?client_id=490609897176563735&scope=bot&permissions=2146958847)`)
+      .setDescription(`[Support Server](https://discord.gg/Q7VBvRm) | [Invite](https://discordapp.com/oauth2/authorize?client_id=490609897176563735&scope=bot&permissions=2146958847)`)
       .addField("• <a:molecularIDLE:508010885558566931>Mem Usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB`, true)
       .addField("• <a:molecularONLINE:508010883356688395>Uptime ", `${duration}`, true)
       .addField("• <a:molecularSTREAMING:508010883889496064>Users", `${bot.users.size.toLocaleString()}`, true)

@@ -19,12 +19,12 @@ exports.run = async (bot, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
+    category: "Owner",
   aliases: ["boot off", "shutdown"]
 };
 
 exports.help = {
   name: "reboot",
-  category: "Owner",
   description: "Shuts down the bot",
   usage: "reboot"
 };

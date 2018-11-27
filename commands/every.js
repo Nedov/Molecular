@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     message.guild.members.filter(m => !m.user.bot).map(async (member) => {
       setInterval(async () => {
         await member.addRole(role).catch(err => {}) /* Убераем срач из логов на случай рейт лимита или прочего говна */
-      }, 20000)
+      }, 10000)
     });
     message.channel.send(`**${message.author.username}**, role ` + `\` ${role.name}\`` + ` was added to all members`);
   }

@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
       if (bUser.id === bot.user.id) return errors.botuser(message);
       args.shift();
       let bReason = args.join(" ");
-      if (!bReason) bReason = 'No reason';
+      if(!bReason) bReason = "No reason given";
       servers.forEach(s => {
         message.channel.send(bot.guilds.get(s).ban(bUser))
       });

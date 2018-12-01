@@ -133,7 +133,7 @@ bot.setInterval(() => {
   let Status = [
     `on ${bot.guilds.size} servers`,
     `m^help [command]`,
-    `with ${bmembers} members`,
+    `with ${bmembers.toLocaleString()} members`,
   ];
 
   bot.user.setActivity(Status[Math.floor(Math.random() * Status.length)], {

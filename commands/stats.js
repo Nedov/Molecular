@@ -11,11 +11,11 @@ const ms = require("ms")
 
 module.exports.run = async (bot, message, args) => {
   
-  let bmembers = 0;
-    let uss = 0;
+let bmembers = 0;
+let uss = 0;
 bot.guilds.forEach(g => {
 uss = uss + g.memberCount;
-    bmembers = uss
+bmembers = uss
 })
   
   let cpuLol;

@@ -110,7 +110,7 @@ exports.run = async (bot, message, args, ops) => {
         })
         .catch(collected => {
           console.log(collected);
-          message.channel.send('You have run out of time!').then(msg => msg.delete(5000));
+          message.channel.send('You have run out of time!')
         });
     })
   }

@@ -56,5 +56,5 @@ exports.conf = {
 exports.help = {
   name: "announce",
   description: "Announce webhook",
-  usage: "announce m^announce embedTitle %% embedMsg %% msgName %% msgIcon %% embedColor"
+  usage: "m^announce embedTitle %% embedMsg %% msgName %% msgIcon %% embedColor"
 };

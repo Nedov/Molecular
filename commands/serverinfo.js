@@ -21,7 +21,6 @@ module.exports.run = async (bot, message, args, tools) => {
   ឵ ឵឵ ឵឵ ឵ ឵${message.guild.members.filter(m => m.user.bot).size} bots`)
       .addField('Verified', ver[message.guild.verified])
       .addField('Total Roles', message.guild.roles.size)
-       .addField(`Roles[${message.guild.roles.size - 1}]`, `${message.guild.roles.map(r => `<@&${r.id}>`).slice(1).join("  |  ")}**   **`)
       .addField('Total Channels', `
   ${message.guild.channels.size} total channels:
   ឵ ឵឵ ${message.guild.channels.filter(c => c.type === "category").size} categories

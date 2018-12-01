@@ -3,9 +3,10 @@ const Discord = require("discord.js");
 
 exports.run = (bot, message, args) => {
 
-
+  if (args[0].length > 18 || args[0].length < 18) return message.channel.send('Enter a vaild Bot ID').then(msg => msg.delete(5000));
+  if (args[1].length > 7) return message.channel.send('Your prefix too long').then(msg => msg.delete(5000));
   let botik = args[0];
-  bot.fetchUser(bot).then(u => {
+  bot.fetchUser(botik).then(u => {
     const embed = new Discord.RichEmbed()
       .setAuthor("Hi " + message.author.username)
       .setDescription("Thanks for inviting your bot! It will be tested and added to the guild shortly")
@@ -16,7 +17,7 @@ exports.run = (bot, message, args) => {
       .setTimestamp()
       .setThumbnail(u.displayAvatarURL)
       .setColor("RANDOM")
-    message.reply(embed)
+    message.channel.send(embed)
   })
 }
 

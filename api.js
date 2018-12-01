@@ -125,10 +125,17 @@ bot.reload = function(command) {
 
 
 bot.setInterval(() => {
+  let bmembers = 0;
+let uss = 0;
+bot.guilds.forEach(g => {
+uss = uss + g.memberCount;
+bmembers = uss
+});
+  
   let Status = [
     `on ${bot.guilds.size} servers`,
     `m^help [command]`,
-    `with ${bot.users.size} members`,
+    `with ${bmembers.toLocaleString()} members`,
   ];
 
   bot.user.setActivity(Status[Math.floor(Math.random() * Status.length)], {

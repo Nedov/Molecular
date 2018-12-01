@@ -20,7 +20,12 @@ const snekfetch = require('snekfetch');
 const items = JSON.parse(fs.readFileSync('items.json', 'utf-8'));
 let cooldown = new Set();
 let cdseconds = 5;
-
+  let bmembers = 0;
+    let uss = 0;
+bot.guilds.forEach(g => {
+uss = uss + g.memberCount;
+    bmembers = uss
+})
 
 bot.login(process.env.BOT_TOKEN);
 
@@ -128,7 +133,7 @@ bot.setInterval(() => {
   let Status = [
     `on ${bot.guilds.size} servers`,
     `m^help [command]`,
-    `with ${bot.users.size} members`,
+    `with ${bmembers} members`,
   ];
 
   bot.user.setActivity(Status[Math.floor(Math.random() * Status.length)], {

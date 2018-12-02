@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
 
   if (!args[0]) {
 
-    let pages = ['announce\narole <user> <role>\navatar [user]\nbug <bug>\ncalc <calculation>\ndiscrim <discrim>\nemoji <emoji>\nhelp [command]\ninvite <botID>\ninvites\nrrole <user> <role>\nserverinfo [serverID]\nserverslist\nstats\n', 'ascii <text>\ncat\ncow <text>\ndeath\ndecode <text>\nencode <text>\ngay\nhug <user>\nlmgtfy <text>\npoll <question>?\nreverse <text>\nroulette\nsaye <text>\nslap <user>\n', 'kick <user> <reason>\nmute <user> <1s/m/h/d> <reason>\npurge <amount>\nreport <user> <reason>\nunmute <user>\nwarn <user> <reason>\nban <user> <reason>', 'anal\nboobs\nsmallboobs\ncum\nhentai\nkuni\nneko\npussy\n']; // Here we will define an array of pages
+    let pages = ['announce\narole <user> <role>\navatar [user]\nbug <bug>\ncalc <calculation>\ndiscrim <discrim>\nemoji <emoji>\nhelp [command]\ninvite <botID>\ninvites\nrrole <user> <role>\nserverinfo\ntop\nserverslist\nstats [ping, uptime]\n', 'ascii <text>\ncat\ncow <text>\ndeath\ndecode <text>\nencode <text>\ngay\nhug <user>\nlmgtfy <text>\npoll <question>?\nreverse <text>\nroulette\nsaye <text>\nslap <user>\n', 'kick <user> <reason>\nmute <user> <1s/m/h/d> <reason>\npurge <amount>\nreport <user> <reason>\nunmute <user>\nwarn <user> <reason>\nban <user> <reason>', 'anal\nboobs\nsmallboobs\ncum\nhentai\nkuni\nneko\npussy\n']; // Here we will define an array of pages
     let page = 1; // We will define what page we are on here, the default page will be 1. (You can change the default page)
     let ptitles = ['<:molecularSettings:508290170962051074>General', '🎉Fun', '<:molecularBan:508290171809038356>Moderation', '🔞NSFW'];
     const embed = new Discord.RichEmbed() // Define a new embed, if you are on the `stable` branch it will be new Discord.RichEmbed()
@@ -77,13 +77,18 @@ module.exports.run = async (bot, message, args) => {
 
   } else {
     let command = args[0];
+
     if (bot.commands.has(command)) {
       command = bot.commands.get(command);
+      var aliases = command.conf.aliases;
+
       const commandHelp = new Discord.RichEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL)
         .addField('Command Name', command.help.name, true)
+        .setColor('3a3a3a')
+        .setThumbnail(bot.user.avatarURL)
         .addField('Command Category', command.conf.categories, true)
-        .addField(`Command Aliases`, `${command.conf.aliases}**   **`)
+        .addField(`Command Aliases`, aliases.join('`, `') || 'None', true)
         .addField('Description', command.help.description, true)
         .addField('Usage', command.help.usage, true)
       message.channel.send(commandHelp);

@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Time", moment().locale('en').format('LLLL'))
     .addField("Reason", bReason);
 
-  let incidentchannel = message.guild.channels.find(`name`, "incidents");
+  let incidentchannel = message.guild.channels.find(ch => ch.name === "incidents");
   if (!incidentchannel) return message.channel.send("Can't find `incidents` channel.");
 
   message.guild.member(bUser).ban(bReason);

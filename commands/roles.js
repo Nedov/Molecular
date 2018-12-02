@@ -1,8 +1,4 @@
 const Discord = require('discord.js'); // I'm requiring discord.js since we will be using Embeds.
-const config = require('../config.json')
-const Canvas = require('canvas');
-const snekfetch = require('snekfetch');
-
 
 exports.run = async (bot, message, args, tools) => {
 
@@ -32,17 +28,15 @@ exports.run = async (bot, message, args, tools) => {
 
 }
 
-// ⏪⏩
-// Now, we can test it. Make sure you add some pages though.
 exports.conf = {
   enabled: true, // not used yet
   guildOnly: false, // not used yet
   aliases: [],
-  categories: ['tests']
+  categories: ['General']
 };
 
 exports.help = {
-  name: "test",
-  description: "test command",
-  usage: "test"
+  name: "roles",
+  description: "Roles List",
+  usage: "roles"
 };

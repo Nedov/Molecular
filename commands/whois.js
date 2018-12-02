@@ -38,7 +38,7 @@ module.exports.run = async (bot, message, args) => {
     .setAuthor(member.user.tag, member.user.avatarURL)
     .setThumbnail(member.user.avatarURL)
     .addField('Created At:', `${moment.parseZone(member.user.createdAt).locale('en').format('dddd, L, HH:mm')}`, true)
-    .addField('Joined At:', `${moment.parseZone(message.guild.members.find('id', member.id).joinedAt).locale('en').format('dddd, L, HH:mm')}`)
+    .addField('Joined At:', `${moment.parseZone(message.guild.members.find(mem => mem.id === member.id).joinedAt).locale('en').format('dddd, L, HH:mm')}`)
     .addField(`Roles[${member.roles.size - 1}]`, `${member.roles.map(r => `<@&${r.id}>`).slice(1).join("  |  ")}**   **`)
     .addField('Status:', status[member.presence.status])
     .addField('Color:', color)

@@ -34,20 +34,22 @@ module.exports.run = async (bot, member) => {
 
 
 
-  var role = member.guild.roles.find(`name`, "Need Verification");
-  if (!role) return;
-  member.addRole(role);
+  // var role = member.guild.roles.find(r => r.name === "Need Verification");
+  // if (!role) return;
+  // member.addRole(role);
   const channel = member.guild.channels.find(ch => ch.name === 'logs');
-      if (!channel) return;
+  if (!channel) return;
 
-let embed = new Discord.RichEmbed()
-.setTitle('Member Logs')
-.setColor("#5cf059")
-.setThumbnail(member.user.avatarURL)
-.setDescription(`${member} visit us, and get ${member.roles.size} roles`)
+  let embed = new Discord.RichEmbed()
+    .setTitle('Member Logs')
+    .setColor("#5cf059")
+    .setThumbnail(member.user.avatarURL)
+    .setDescription(`${member} visit us, and get ${member.roles.size} roles`)
 
 
-      channel.send(`Total users : ${member.guild.memberCount}`, {embed});
+  channel.send(`Total users : ${member.guild.memberCount}`, {
+    embed
+  });
 
 
 }

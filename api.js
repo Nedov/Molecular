@@ -68,13 +68,14 @@ fs.readdir("./events/", (err, files) => {
 bot.on("error", console.error);
 bot.on("message", async message => {
 
+
   // handler
   if (!message.content.startsWith(config.prefix)) return;
   if (cooldown.has(message.author.id)) {
     message.delete();
     return message.reply('You have to wait 5 seconds between commands.')
   }
-  if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+  if (!config.owners.includes(message.author.id)) {
     cooldown.add(message.author.id);
   }
   setTimeout(() => {
@@ -83,7 +84,7 @@ bot.on("message", async message => {
 
 
   if (!message.content.startsWith(config.prefix)) return;
-  let command = message.content.split(" ")[0].slice(config.prefix.length);
+  let command = message.content.split(" ")[0].slice(config.prefix.length).toLowerCase();
   let args = message.content.split(" ").slice(1);
   let commands;
   if (bot.commands.has(command)) {
@@ -126,12 +127,12 @@ bot.reload = function(command) {
 
 bot.setInterval(() => {
   let bmembers = 0;
-let uss = 0;
-bot.guilds.forEach(g => {
-uss = uss + g.memberCount;
-bmembers = uss
-});
-  
+  let uss = 0;
+  bot.guilds.forEach(g => {
+    uss = uss + g.memberCount;
+    bmembers = uss
+  });
+
   let Status = [
     `on ${bot.guilds.size} servers`,
     `m^help [command]`,
@@ -146,17 +147,35 @@ bmembers = uss
 
 bot.on('message', async message => {
   if (message.author.bot) return;
-  if (message.content.startsWith('лао')) { //слово и 3 варианта ответа с рандомным выбором
+  if (message.content === 'лао') { //слово и 3 варианта ответа с рандомным выбором
     let randomanswer = ['дао', 'бао']
     const ranswer = randomanswer[Math.floor(Math.random() * randomanswer.length)]
-    message.channel.send(ranswer)
-  } else if (message.content.startsWith('дао')) {
+    message.reply(ranswer)
+  } else if (message.content === 'дао') {
     let randomanswer2 = ['лао', 'бао']
     const ranswer2 = randomanswer2[Math.floor(Math.random() * randomanswer2.length)]
-    message.channel.send(ranswer2)
-  } else if (message.content.startsWith('бао')) {
+    message.reply(ranswer2)
+  } else if (message.content === 'бао') {
     let randomanswer3 = ['лао', 'дао']
     const ranswer3 = randomanswer3[Math.floor(Math.random() * randomanswer3.length)]
-    message.channel.send(ranswer3)
-  }
+    message.reply(ranswer3)
+  } else if (message.content === 'мисал') {
+    let randomanswer4 = ['не мисал, а мисаал', 'в тапки нассал', 'опять нассал?', 'он опять в тапки нассал?']
+    const ranswer4 = randomanswer4[Math.floor(Math.random() * randomanswer4.length)]
+    message.reply(ranswer4)
+  } else if (message.content === 'саси') {
+    let randomanswer5 = ['сасу', 'сам саси', 'губой триси', 'бибу', 'я сасу бибу', 'я итак сасу']
+    const ranswer5 = randomanswer5[Math.floor(Math.random() * randomanswer5.length)]
+    message.reply(ranswer5)
+  } else if (message.content === 'нет ты') {
+    let randomanswer6 = ['ой всё', 'нет ты', 'карочи иди нахуй', 'а может ты?', 'все таки ты', 'ты, ЯСКОЗАЛ', 'А шо я? я пепе']
+    const ranswer6 = randomanswer6[Math.floor(Math.random() * randomanswer6.length)]
+    message.reply(ranswer6)
+  } else if (message.content === 'дратути') {
+    let randomanswer7 = ['дароу', 'дороу', 'Здратути сэр', 'здравствуйте', 'все таки ты', 'ты, ЯСКОЗАЛ', 'А шо я? я пепе']
+    const ranswer7 = randomanswer7[Math.floor(Math.random() * randomanswer7.length)]
+    message.reply(ranswer7)
+  } //else if (message.isMentioned('295468625240915968')) {
+  //   message.reply(':gay_pride_flag: GAY:gay_pride_flag: ')
+  // }
 });

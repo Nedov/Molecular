@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
   if (!tomute) return message.reply("Couldn't find user.");
   if (tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Can't unmute them!");
 
-  let muterole = message.guild.roles.find(`name`, "muted");
+  let muterole = message.guild.roles.find(r => r.name === "muted");
   //start of create role
   if (!muterole) {
     try {
@@ -49,7 +49,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Unmuted User", tomute)
     .addField("Time", moment.parseZone(message.createdAt).locale('en').format('dd, DD-MM-YYYY, HH:mm'));
 
-  let incidentschannel = message.guild.channels.find(`name`, "incidents");
+  let incidentschannel = message.guild.channels.find(ch => ch.name === "incidents");
   if (!incidentschannel) return message.reply("Please create a `incidents` channel first!");
   incidentschannel.send(muteembed);
 

@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
   if (!argss[0] || argss.length > 18 || argss.length < 18 || isNaN(argss)) return message.channel.send('Please, enter a valid role ID');
   if (argss) {
 
-    let role = message.guild.roles.find('id', argss);
+    let role = message.guild.roles.find(r => r.name === argss);
 
     if (!role) return message.channel.send(`**${message.author.username}**, role not found`);
     message.channel.send(`Starting adding \`${role.name}\` role to ${message.guild.memberCount} users`)

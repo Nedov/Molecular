@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
   let reason = args.slice(22).join(" ");
   if (!reason) return message.reply("Please supply a reason.");
 
-  let muterole = message.guild.roles.find(`name`, "muted");
+  let muterole = message.guild.roles.find(r => r.name === "muted");
   //start of create role
   if (!muterole) {
     try {
@@ -58,7 +58,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Length", mutetime)
     .addField("Reason", reason);
 
-  let incidentschannel = message.guild.channels.find(`name`, "incidents");
+  let incidentschannel = message.guild.channels.find(ch => ch.name === "incidents");
   if (!incidentschannel) return message.reply("Please create a `incidents` channel first!");
   incidentschannel.send(muteembed);
 

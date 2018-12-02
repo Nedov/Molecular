@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args = []) => {
 
   if (!args[0]) return message.reply('Используй `m^add @user`');
 
-  let gRole = message.guild.roles.find(`name`, 'Участник гильдий');
+  let gRole = message.guild.roles.find(r => r.name === 'Участник гильдий');
   if (!gRole) return message.reply("Роль не найдена.");
 
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);

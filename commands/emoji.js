@@ -34,7 +34,7 @@ module.exports.run = async (bot, message, args, tools) => {
       msg.delete(10000)
     });
   }
-  args = bot.emojis.find('name', args);
+  args = bot.emojis.find(e => e.name === args);
 
   if (!args) {
     const embed = new Discord.RichEmbed()
@@ -50,6 +50,7 @@ module.exports.run = async (bot, message, args, tools) => {
   if (args) {
     const embed1 = new Discord.RichEmbed()
       .setTitle('Emoji Info')
+      .setThumbnail(args.url)
       .addField('For Bot:', ' \\' + args, true)
       .addField('឵឵ ឵ ឵឵ ឵ Name', ' ឵ ឵឵ ឵ ' + args.name, true)
       .addField('Id', args.id, true)

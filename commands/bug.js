@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args, tools) => {
             message.reply('There was an error while sending your bug report to Molecular Support. Please try again later.');
           } else {
             resolve(res);
-            message.channel.send(`:white_check_mark: **${message.author.username}**, your bug report has successfully been submitted to Frogbot Support for review. Thank you!.`);
+            message.channel.send(`:white_check_mark: **${message.author.username}**, your bug report has successfully been submitted to Frogbot Support for review. Thank you!`);
           }
         });
     });

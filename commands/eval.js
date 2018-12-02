@@ -18,10 +18,19 @@ const snekfetch = require('snekfetch');
 const cowsay = require('cowsay');
 const superagent = require("superagent");
 const config = require("../config.json");
-
+const m = require("moment-duration-format");
+let os = require('os')
+let cpuStat = require("cpu-stat")
 module.exports.run = async (bot, message, args) => {
 
-  if (!config.owners.includes(message.author.id)) return message.channel.send(`<@${message.author.id}> You don'\t to have permissions`);
+  if (!config.owners.includes(message.author.id)) return message.channel.send(`<@${message.author.id}> You don\'t to have permissions`);
+
+  let bmembers = 0;
+  let uss = 0;
+  bot.guilds.forEach(g => {
+    uss = uss + g.memberCount;
+    bmembers = uss
+  });
 
   const code = args.join(" ")
     .replace(/bot\.token|bot\[.token.\]/ig, 'kthxbai')

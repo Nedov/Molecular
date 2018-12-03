@@ -7,7 +7,7 @@ const moment = require("moment");
 module.exports.run = async (bot, message, args) => {
 
 
-  if (member.highestRole.position >= message.member.highestRole.position) return message.reply("Missing permissions.");
+  if (message.author.hasPermissions === 'MANAGE_MESSAGES') return message.reply("Missing permissions.");
   if (args[0] == "help") {
     message.reply("Usage: m^mute <user> <1s/m/h/d>");
     return;
@@ -18,12 +18,12 @@ module.exports.run = async (bot, message, args) => {
   let reason = args.slice(22).join(" ");
   if (!reason) return message.reply("Please supply a reason.");
 
-  let muterole = message.guild.roles.find(r => r.name === "muted");
+  let muterole = message.guild.roles.find(r => r.name === "gulag");
   //start of create role
   if (!muterole) {
     try {
       muterole = await message.guild.createRole({
-        name: "muted",
+        name: "gulag",
         color: "#000000",
         permissions: []
       })

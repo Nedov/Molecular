@@ -7,7 +7,7 @@ const moment = require("moment");
 module.exports.run = async (bot, message, args) => {
 
 
-  if (message.author.hasPermissions === 'MANAGE_MESSAGES') return message.reply("Missing permissions.");
+  if (!message.author.hasPermission("MANAGE_MESSAGES")) return message.reply("Missing permissions.");
   if (args[0] == "help") {
     message.reply("Usage: m^mute <user> <1s/m/h/d>");
     return;

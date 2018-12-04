@@ -7,7 +7,7 @@ exports.run = (bot, message, args, tools) => {
     .setColor(0xffffff);
 
   // Check if they entered a number between 0-10000
-  if (isNaN(args[0]) || args[0] > 9999 || args[0] < 1) { // Run if out of parameters
+  if (isNaN(args[0]) || args[0] > 9999 || args[0] < 1 || args[0].length < 4) { // Run if out of parameters
 
     // Update embed footer
     embed.setFooter('Sorry, please enter a valid discrim.');

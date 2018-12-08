@@ -31,9 +31,6 @@ const con = mysql.createConnection({
 
 bot.login(process.env.BOT_TOKEN);
 
-setInterval( () => {
-        con.query(`UPDATE stats SET guilds = '${client.guilds.size}', channels = '${client.channels.size}', uptime = '${moment.duration(client.uptime)._data.days} days, ${moment.duration(client.uptime)._data.hours} hours, ${moment.duration(client.uptime)._data.minutes} minutes, ${moment.duration(client.uptime)._data.seconds} seconds', ping = '${Math.round(client.ping)}', users = '${bmembers}'`)
-    }, 300000)
 
 const log = (msg) => {
   console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] ${msg}`);
@@ -154,6 +151,10 @@ bot.setInterval(() => {
   });
 
 }, 10 * 1000);
+
+setInterval( () => {
+        con.query(`UPDATE stats SET guilds = '${bot.guilds.size}', channels = '${bot.channels.size}', uptime = '${moment.duration(bot.uptime)._data.days} days, ${moment.duration(bot.uptime)._data.hours} hours, ${moment.duration(bot.uptime)._data.minutes} minutes, ${moment.duration(bot.uptime)._data.seconds} seconds', ping = '${Math.round(bot.ping)}', users = '${bmembers}'`)
+    }, 300000)
 
 bot.on('message', async message => {
   if (message.author.bot) return;

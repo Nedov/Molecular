@@ -132,14 +132,13 @@ bot.reload = function(command) {
 };
 
 
-
-bot.setInterval(() => {
   let bmembers = 0;
   let uss = 0;
   bot.guilds.forEach(g => {
     uss = uss + g.memberCount;
     bmembers = uss
   });
+bot.setInterval(() => {
 
   let Status = [
     `on ${bot.guilds.size} servers`,

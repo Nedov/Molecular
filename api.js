@@ -13,6 +13,7 @@ const tools = require('./functions.js');
 const encode = require('strict-uri-encode');
 const ascii = require('ascii-art');
 const db = require('quick.db');
+const mysql = require('mysql');
 const math = require('mathjs');
 const xp = require('./storage/xp.json')
 const Canvas = require('canvas');

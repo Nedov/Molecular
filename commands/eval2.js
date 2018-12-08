@@ -49,7 +49,7 @@ module.exports.run = async (bot, message, args) => {
 
       .setColor("0x4f351")
       .addField(`📥 Input:`, `\`\`\`${code}\`\`\` \n`)
-      .addField(`Output:`, `\`\`\`${(evaled)}\`\`\`\n `)
+      .addField(`📤Output:`, `\`\`\`${(evaled)}\`\`\`\n `)
       .addField(`🛒Type:`, `\`\`\`${(typeof evaled)}\`\`\`\n`)
     message.channel.send({
       embed

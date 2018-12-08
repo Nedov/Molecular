@@ -22,6 +22,7 @@ const items = JSON.parse(fs.readFileSync('items.json', 'utf-8'));
 let cooldown = new Set();
 let cdseconds = 5;
 
+
 const con = mysql.createConnection({
   host: process.env.HOST, // добавьте в системную переменую название вашего хоста "https://db4free.net"
   user: process.env.USER, // добавьте в системную переменую название пользователя вашей базы

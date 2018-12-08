@@ -48,8 +48,9 @@ module.exports.run = async (bot, message, args) => {
       .setTitle(`EVAL ✅`)
 
       .setColor("0x4f351")
-      .setDescription(`📥 Input: \n \`\`\`${code}\`\`\` \n 📤 Output: \n  \`\`\`${(evaled)}\`\`\`\n 🛒Type \n \`\`\`${(typeof evaled)}\`\`\` `)
-
+      .addField(`📥 Input: \n \`\`\`${code}\`\`\` \n`)
+      .addField(`Output: \n  \`\`\`${(evaled)}\`\`\`\n `)
+      .addField(`🛒Type \n \`\`\`${(typeof evaled)}\`\`\`\n`)
     message.channel.send({
       embed
     });

@@ -21,9 +21,18 @@ const items = JSON.parse(fs.readFileSync('items.json', 'utf-8'));
 let cooldown = new Set();
 let cdseconds = 5;
 
+const con = mysql.createConnection({
+  host: process.env.HOST, // добавьте в системную переменую название вашего хоста "https://db4free.net"
+  user: process.env.USER, // добавьте в системную переменую название пользователя вашей базы
+  password:  process.env.PASS, // добавьте в системную переменую пароль вашей базы
+  database:  process.env.DATABASE // добавьте в системную переменую название вашей базы
+});
 
 bot.login(process.env.BOT_TOKEN);
 
+setInterval( () => {
+        con.query(`UPDATE stats SET guilds = '${client.guilds.size}', channels = '${client.channels.size}', uptime = '${moment.duration(client.uptime)._data.days} days, ${moment.duration(client.uptime)._data.hours} hours, ${moment.duration(client.uptime)._data.minutes} minutes, ${moment.duration(client.uptime)._data.seconds} seconds', ping = '${Math.round(client.ping)}', users = '${bmembers}'`)
+    }, 300000)
 
 const log = (msg) => {
   console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] ${msg}`);

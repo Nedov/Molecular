@@ -153,7 +153,7 @@ bot.setInterval(() => {
 
 }, 10 * 1000);
 
-setInterval( () => {
+bot.setInterval( () => {
         con.query(`UPDATE stats SET guilds = '${bot.guilds.size}', channels = '${bot.channels.size}', uptime = '${moment.duration(bot.uptime)._data.days} days, ${moment.duration(bot.uptime)._data.hours} hours, ${moment.duration(bot.uptime)._data.minutes} minutes, ${moment.duration(bot.uptime)._data.seconds} seconds', ping = '${Math.round(bot.ping)}', users = '${bmembers}'`)
     }, 300000)
 

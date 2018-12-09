@@ -23,12 +23,12 @@ let cooldown = new Set();
 let cdseconds = 5;
 
 
-const con = mysql.createConnection({
-  host: process.env.HOST, // добавьте в системную переменую название вашего хоста "https://db4free.net"
-  user: process.env.USER, // добавьте в системную переменую название пользователя вашей базы
-  password:  process.env.PASS, // добавьте в системную переменую пароль вашей базы
-  database:  process.env.DATABASE // добавьте в системную переменую название вашей базы
-});
+// const con = mysql.createConnection({
+//   host: process.env.HOST,
+//   user: process.env.USER,
+//   password:  process.env.PASS,
+//   database:  process.env.DATABASE
+// });
 
 bot.login(process.env.BOT_TOKEN);
 
@@ -132,14 +132,16 @@ bot.reload = function(command) {
 };
 
 
-  let bmembers = 0;
+
+bot.setInterval(() => {
+
+    let bmembers = 0;
   let uss = 0;
   bot.guilds.forEach(g => {
     uss = uss + g.memberCount;
     bmembers = uss
   });
-bot.setInterval(() => {
-
+  
   let Status = [
     `on ${bot.guilds.size} servers`,
     `m^help [command]`,
@@ -152,9 +154,9 @@ bot.setInterval(() => {
 
 }, 10 * 1000);
 
-bot.setInterval( () => {
-        con.query(`UPDATE stats SET guilds = '${bot.guilds.size}', channels = '${bot.channels.size}', uptime = '${moment.duration(bot.uptime)._data.days} days, ${moment.duration(bot.uptime)._data.hours} hours, ${moment.duration(bot.uptime)._data.minutes} minutes, ${moment.duration(bot.uptime)._data.seconds} seconds', ping = '${Math.round(bot.ping)}', users = '${bmembers}'`)
-    }, 300000)
+// bot.setInterval( () => {
+//         con.query(`UPDATE stats SET guilds = '${bot.guilds.size}', channels = '${bot.channels.size}', uptime = '${moment.duration(bot.uptime)._data.days} days, ${moment.duration(bot.uptime)._data.hours} hours, ${moment.duration(bot.uptime)._data.minutes} minutes, ${moment.duration(bot.uptime)._data.seconds} seconds', ping = '${Math.round(bot.ping)}', users = '${bmembers}'`)
+//     }, 300000)
 
 bot.on('message', async message => {
   if (message.author.bot) return;

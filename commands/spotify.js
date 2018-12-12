@@ -1,11 +1,7 @@
 const Discord = require('discord.js');
-exports.run = async (bot, message, args, tools) => {
+  var user = message.mentions.users.first() || message.author;
+  if (user.presence.game.name !== 'Spotify' && user.presence.game.type !== 2) return message.channel.send('**This user isn\'t listening to Spotify!**'); // This will notify in chat that the specified user isn't listening to Spotify.
 
-
-  // First, we need to grab the user, if they are doing it for themselves or mentioning someone.
-  let user = message.mentions.users.first() || message.author; // This checks if there is a mention, and takes the first one. Although, if there isn't a mention it uses the message author as a fallback.
-
-  // Next, we need to verify that the specified user is listening to spotify.
   if (user.presence.game.name === 'Spotify' && user.presence.game.type === 2) { // This checks all of these if statements, and if they are all true, it runs the following.
 
     // Variables - These are the variables we will be using in the embed
@@ -29,10 +25,6 @@ exports.run = async (bot, message, args, tools) => {
     message.channel.send(embed); // This sends the formed embed to the channel.
 
     // Now, we can test it.
-
-  } else { // Although, if one of those conditions is false it will run this.
-
-    message.channel.send('**This user isn\'t listening to Spotify!**'); // This will notify in chat that the specified user isn't listening to Spotify.
 
   }
 

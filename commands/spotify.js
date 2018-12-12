@@ -1,4 +1,7 @@
 const Discord = require('discord.js');
+exports.run = async (bot, message, args, tools) => {
+
+
   var user = message.mentions.users.first() || message.author;
   if (user.presence.game.name !== 'Spotify' && user.presence.game.type !== 2) return message.channel.send('**This user isn\'t listening to Spotify!**'); // This will notify in chat that the specified user isn't listening to Spotify.
 

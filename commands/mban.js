@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
   if (!args[0] || isNaN(args[0])) return message.channel.send('Please, enter a user ID');
   if (args[0]) {
     try {
-      let servers = ['404980768302039061', '469630074061062154', '452877065390391296', '469628190483283988', '504005061186420757', '511233067247992865', '248111395420241920', '478933393757962242'];
+      let servers = ['463704704925302784', '404980768302039061', '469630074061062154', '452877065390391296', '469628190483283988', '504005061186420757', '511233067247992865', '248111395420241920', '478933393757962242'];
       let bUser = args[0];
       if (!bUser) return errors.cantfindUser(message.channel);
       if (bUser.id === bot.user.id) return errors.botuser(message);

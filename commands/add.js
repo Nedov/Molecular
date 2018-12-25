@@ -6,11 +6,21 @@ module.exports.run = async (bot, message, args = []) => {
   if (!args[0]) return message.reply('Используй `m^add @user`');
 
   let gRole = message.guild.roles.find(r => r.name === 'Участник гильдий');
-  if (!gRole) return message.reply("Роль не найдена.");
+    if (!gRole) return message.reply("Роль не найдена.");
+
+  let hRole = message.guild.roles.find(r => r.id === "527080559541747712");
+  if (!hRole) return message.reply("Роль не найдена.");
+
+  let nRole = message.guild.roles.find(r => r.id === "527080032586432513");
+  if (!nRole) return message.reply("Роль не найдена.");
 
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
   if (!rMember) return message.reply('упомяните пользователя / пользователь не найден!');
-
+  if(args[1] === "hypixel") {
+    rMember.addRole(hRole.id)
+  } else if(args[1] === "nx") {
+  rMember.addRole(nRole.id)
+  }
 
   if (rMember.roles.has(gRole.id)) return message.reply("пользователь уже учасник.");
   await (rMember.addRole(gRole.id));

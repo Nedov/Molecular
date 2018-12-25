@@ -21,6 +21,7 @@ module.exports.run = async (bot, message, args = []) => {
   } else if(args[1] === "nx") {
   rMember.addRole(nRole.id)
   }
+  if(!args[1]) return message.channel.send("Укажите какую роль: `Hypixel` - hypexel; `NeruxVace` - nx");
 
   if (rMember.roles.has(gRole.id)) return message.reply("пользователь уже учасник.");
   await (rMember.addRole(gRole.id));

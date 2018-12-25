@@ -23,8 +23,7 @@ module.exports.run = async (bot, message, args = []) => {
   }
   if(!args[1]) return message.channel.send("Укажите какую роль: `Hypixel` - hypixel; `NeruxVace` - nx");
 
-  if (rMember.roles.has(hRole.id)) return message.reply("пользователь уже учасник гильдии на Хайпикселе.");
-    if (rMember.roles.has(nRole.id)) return message.reply("пользователь уже учасник гильдии на НеруксВейсе.");
+
   await (rMember.addRole(gRole.id));
 
   try {

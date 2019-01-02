@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
       let bReason = args.join(" ");
       if (!bReason) bReason = "No reason given";
       servers.forEach(s => {
-        message.channel.send(bot.guilds.get(s).ban(bUser))
+        message.channel.send(bot.guilds.get(s).ban(bUser, bReason))
       });
       try {
         await tomute.send(`Ты зобанен по причине "пидорас" \nхочешь вернуться? \nпиши в лс @! ЛАОДАО#6666\nYou're banned for ${bReason}\nwanna go back? \nwrite in DM @! LAODAO#6666\n\nThe union of Pepestan's servers:\nhttps://discord.gg/TVw8NKv    <-Republic of Pepestan (russian server)\nhttps://discord.gg/ufkZrXC   <--  ! Pepe's Kungahus  (english server)\nhttps://discord.gg/fAHf8bC   <--  ➤Dizzy 2.0  (english server)\nhttps://discord.gg/uRbSmD6   <--  ! Regression   (russian server)\nhttps://discord.gg/NS58VYv   <--  VOEP  (russian server)`)

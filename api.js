@@ -158,37 +158,3 @@ bot.setInterval(() => {
 //         con.query(`UPDATE stats SET guilds = '${bot.guilds.size}', channels = '${bot.channels.size}', uptime = '${moment.duration(bot.uptime)._data.days} days, ${moment.duration(bot.uptime)._data.hours} hours, ${moment.duration(bot.uptime)._data.minutes} minutes, ${moment.duration(bot.uptime)._data.seconds} seconds', ping = '${Math.round(bot.ping)}', users = '${bmembers}'`)
 //     }, 300000)
 
-bot.on('message', async message => {
-  if (message.author.bot) return;
-  if (message.content === 'лао') { //слово и 3 варианта ответа с рандомным выбором
-    let randomanswer = ['дао', 'бао']
-    const ranswer = randomanswer[Math.floor(Math.random() * randomanswer.length)]
-    message.reply(ranswer)
-  } else if (message.content === 'дао') {
-    let randomanswer2 = ['лао', 'бао']
-    const ranswer2 = randomanswer2[Math.floor(Math.random() * randomanswer2.length)]
-    message.reply(ranswer2)
-  } else if (message.content === 'бао') {
-    let randomanswer3 = ['лао', 'дао']
-    const ranswer3 = randomanswer3[Math.floor(Math.random() * randomanswer3.length)]
-    message.reply(ranswer3)
-  } else if (message.content === 'мисал') {
-    let randomanswer4 = ['не мисал, а мисаал', 'в тапки нассал', 'опять нассал?', 'он опять в тапки нассал?']
-    const ranswer4 = randomanswer4[Math.floor(Math.random() * randomanswer4.length)]
-    message.reply(ranswer4)
-  } else if (message.content === 'саси') {
-    let randomanswer5 = ['сасу', 'сам саси', 'губой триси', 'бибу', 'я сасу бибу', 'я итак сасу']
-    const ranswer5 = randomanswer5[Math.floor(Math.random() * randomanswer5.length)]
-    message.reply(ranswer5)
-  } else if (message.content === 'нет ты') {
-    let randomanswer6 = ['ой всё', 'нет ты', 'карочи иди нахуй', 'а может ты?', 'все таки ты', 'ты, ЯСКОЗАЛ', 'А шо я? я пепе']
-    const ranswer6 = randomanswer6[Math.floor(Math.random() * randomanswer6.length)]
-    message.reply(ranswer6)
-  } else if (message.content === 'дратути') {
-    let randomanswer7 = ['дароу', 'дороу', 'Здратути сэр', 'здравствуйте', 'все таки ты', 'ты, ЯСКОЗАЛ', 'А шо я? я пепе']
-    const ranswer7 = randomanswer7[Math.floor(Math.random() * randomanswer7.length)]
-    message.reply(ranswer7)
-  } //else if (message.isMentioned('295468625240915968')) {
-  //   message.reply(':gay_pride_flag: GAY:gay_pride_flag: ')
-  // }
-});

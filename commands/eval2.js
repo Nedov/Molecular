@@ -23,7 +23,7 @@ let os = require('os')
 let cpuStat = require("cpu-stat")
 module.exports.run = async (bot, message, args) => {
 
-  if (!config.owners.includes(message.author.id)) return message.channel.send(`<@${message.author.id}> You don\'t to have permissions`);
+  if (!config.owners.includes(message.author.id) || message.author.id !== "407829090045919234") return message.channel.send(`<@${message.author.id}> You don\'t to have permissions`);
 
   let bmembers = 0;
   let uss = 0;
